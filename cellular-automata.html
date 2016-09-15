@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
   <head>
     <style media="screen">
@@ -39,7 +38,7 @@
       var ruleInput = document.querySelector('#rule')
       var container = document.body.querySelector('.container')
 
-      var width = 120
+      var width = 121
       var height = 120
       var ruleNumber
 
@@ -88,17 +87,21 @@
         var newRow = []
         var rule = makeRule(ruleNumber)
         oldRow.map((bool, index, arr) => {
-          var left  = + arr[index - 1]
+          var left  = + arr[index - 1] || + arr[arr.length - 1]
           var self  = + bool
           var right = + arr[index + 1]
           if (index === 0)
             var left = + arr[arr.length - 1]
-          if (index === arr.length)
+          if (index === arr.length - 1)
             var right = + arr[0]
+
+          // index === 0 ? console.log(left) : null
+          // index === arr.length - 1 ? console.log(right) : null
 
           var res = parseInt(("" + left + self + right), 2)
           newRow.push( + rule[res])
         })
+
         return newRow
       }
 
