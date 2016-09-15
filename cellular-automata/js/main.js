@@ -9,13 +9,7 @@ var ruleNumber
 var rndBool = () => Math.random()<.5
 
 // make array of random numbers
-var rndRow = count => {
-  let randomRow = []
-  for (var i = 0; i < count; i++) {
-    randomRow.push(rndBool())
-  }
-  return randomRow
-}
+var rndRow = (count) => Array.from(Array(count)).map(() => rndBool());
 
 // make array of numbers for results
 var makeRule = number => {
@@ -23,7 +17,7 @@ var makeRule = number => {
   while (binary.length < 8) {
     binary = "0" + binary
   }
-  binary = binary.split("").reverse()
+  binary = binary.split('').reverse()
   return binary
 }
 
@@ -58,7 +52,7 @@ var calcNewRow = (oldRow, ruleNumber) => {
     if (index === arr.length)
       var right = + arr[0]
 
-    var res = parseInt(("" + left + self + right), 2)
+    var res = parseInt(('' + left + self + right), 2)
     newRow.push( + rule[res])
   })
   return newRow
