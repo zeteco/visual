@@ -1,15 +1,15 @@
 var ruleInput = document.querySelector('#rule')
 var container = document.body.querySelector('.container')
 
-var width = 120
-var height = 120
+var width = 15
+var height = 15
 var ruleNumber
 
 // make random number 0 or 1
 var rndBool = () => Math.random()<.5
 
 // make array of random numbers
-var rndRow = (count) => Array.from(Array(count)).map(() => rndBool());
+var rndRow = (count) => Array.from(Array(count)).map(rndBool);
 
 // make array of numbers for results
 var makeRule = number => {
@@ -49,7 +49,7 @@ var calcNewRow = (oldRow, ruleNumber) => {
     var right = + arr[index + 1]
     if (index === 0)
       var left = + arr[arr.length - 1]
-    if (index === arr.length)
+    if (index === arr.length - 1)
       var right = + arr[0]
 
     var res = parseInt(('' + left + self + right), 2)

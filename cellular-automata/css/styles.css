@@ -1,0 +1,32 @@
+body, html {
+  padding: 0;
+  font-size: 25px;
+}
+.row {
+  display: block;
+  clear: both;
+}
+.cell {
+  display: block;
+  float: left;
+  margin: 0;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  line-height: 1;
+  font-family: 'Source Code Pro', monospace;
+}
+.cell--true { background-color: #f06; }
+.cell--true:after {
+  content: '1';
+  color: #eee;
+}
+.cell--false { background-color: #eee; }
+.cell--false:after {
+  content: '0';
+  color: #f06;
+}
+.controls {
+  display: block;
+  margin: 10px;
+}
