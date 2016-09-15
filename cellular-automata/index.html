@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style media="screen">
+      body, html {
+        padding: 0;
+      }
+      .row {
+        display: block;
+        clear: both;
+      }
+      .cell {
+        display: block;
+        float: left;
+        margin: 0;
+        width: 5px;
+        height: 5px;
+      }
+      .cell--true { background-color: #f06; }
+      .cell--false { background-color: #eee; }
+      .controls {
+        display: block;
+        margin: 10px;
+      }
+    </style>
+    <meta charset="utf-8">
+    <title>CA</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <div class="controls">
+      <form class="" action="cellular-automata.html" method="post">
+        <input id="rule" placeholder="[0...255]" type="text" name="rule" value="">
+        <button type="button" name="button" onclick="calculate()">Go</button>
+      </form>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
