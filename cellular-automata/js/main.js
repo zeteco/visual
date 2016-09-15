@@ -25,6 +25,7 @@ var ruleNumber
 var rndBool = () => Math.random()<.5
 
 // make array of random numbers
+<<<<<<< 515444ccec1d959cda18fcb931c5ba847985ebf8
 var rndRow = count => {
   let randomRow = []
   for (var i = 0; i < count; i++) {
@@ -33,6 +34,9 @@ var rndRow = count => {
   return randomRow
 }
 >>>>>>> MOD: bring the code to a js file
+=======
+var rndRow = (count) => Array.from(Array(count)).map(() => rndBool());
+>>>>>>> MOD: some code cleaning
 
 // make array of numbers for results
 var makeRule = number => {
@@ -40,6 +44,7 @@ var makeRule = number => {
   while (binary.length < 8) {
     binary = "0" + binary
   }
+<<<<<<< 515444ccec1d959cda18fcb931c5ba847985ebf8
 <<<<<<< 649b1af6898ff2a2eb049d5983449445ffbc2ab8
   binary = binary.split('').reverse()
   return binary
@@ -47,6 +52,9 @@ var makeRule = number => {
 
 =======
   binary = binary.split("").reverse()
+=======
+  binary = binary.split('').reverse()
+>>>>>>> MOD: some code cleaning
   return binary
 }
 
@@ -88,8 +96,12 @@ var calcNewRow = (oldRow, ruleNumber) => {
     if (index === arr.length)
       var right = + arr[0]
 
+<<<<<<< 515444ccec1d959cda18fcb931c5ba847985ebf8
     var res = parseInt(("" + left + self + right), 2)
 >>>>>>> MOD: bring the code to a js file
+=======
+    var res = parseInt(('' + left + self + right), 2)
+>>>>>>> MOD: some code cleaning
     newRow.push( + rule[res])
   })
   return newRow
