@@ -1,4 +1,4 @@
-var ruleInput = document.querySelector('#rule')
+var ruleInput = document.querySelector('input.rule')
 var container = document.body.querySelector('.container')
 
 var width = 15
@@ -63,11 +63,16 @@ var calculate = () => {
   container.innerHTML = ''
   ruleNumber = ruleInput.value || 73
   var lastRow = rndRow(width)
-  for (var i = 0; i < height; i++) {
+  Array.from(Array(height)).map(() => {
     var nextRow = calcNewRow(lastRow, ruleNumber)
     renderRow(nextRow)
     lastRow = nextRow
-  }
+  })
+  // for (var i = 0; i < height; i++) {
+  //   var nextRow = calcNewRow(lastRow, ruleNumber)
+  //   renderRow(nextRow)
+  //   lastRow = nextRow
+  // }
 }
 
 calculate()
