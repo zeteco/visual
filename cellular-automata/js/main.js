@@ -1,15 +1,17 @@
 var ruleInput = document.querySelector('input.rule')
-var container = document.body.querySelector('.container')
+// var containers = document.body.querySelectorAll('.container')
+var containers = Array.prototype.slice.call(document.querySelectorAll('.container'));
 
 var width = 15
 var height = 15
-var ruleNumber
+
+// -------------- Render functions -------------- //
 
 // make random number 0 or 1
-var rndBool = () => Math.random()<.5
+var rndBool = () => Math.random() < .5
 
 // make array of random numbers
-var rndRow = (count) => Array.from(Array(count)).map(rndBool);
+var rndRow = count => Array.from(Array(count)).map(rndBool);
 
 // make array of numbers for results
 var makeRule = number => {
@@ -19,24 +21,6 @@ var makeRule = number => {
   }
   binary = binary.split('').reverse()
   return binary
-}
-
-// makes new divs and puts cells in row
-var renderRow = row => {
-  var rowDiv = newRowDiv()
-  row.map( bool => {
-    var cell = document.createElement('div')
-    cell.classList.add('cell')
-    cell.classList.add( bool ? 'cell--true' : 'cell--false' )
-    rowDiv.appendChild(cell)
-  })
-}
-// makes new row.div
-var newRowDiv = () => {
-  var rowDiv = document.createElement('div')
-  rowDiv.classList.add('row')
-  container.appendChild(rowDiv)
-  return rowDiv
 }
 
 // meat
@@ -59,20 +43,71 @@ var calcNewRow = (oldRow, ruleNumber) => {
 }
 
 // exec
-var calculate = () => {
-  container.innerHTML = ''
-  ruleNumber = ruleInput.value || 73
+var calculate = ruleNumber => {
+  var result = []
+  // ruleNumber = ruleInput.value || 73
   var lastRow = rndRow(width)
   Array.from(Array(height)).map(() => {
     var nextRow = calcNewRow(lastRow, ruleNumber)
-    renderRow(nextRow)
+    // renderRow(nextRow)
+    result.push(nextRow)
     lastRow = nextRow
   })
-  // for (var i = 0; i < height; i++) {
-  //   var nextRow = calcNewRow(lastRow, ruleNumber)
-  //   renderRow(nextRow)
-  //   lastRow = nextRow
-  // }
+  return result
 }
 
-calculate()
+// -------------- Render functions -------------- //
+
+// makes new divs and puts cells in row
+var renderRow = (row, element) => {
+  var rowDiv = newRowDiv(element)
+  row.map( bool => {
+    var cell = document.createElement('div')
+    cell.classList.add('cell')
+    cell.classList.add( bool ? 'cell--true' : 'cell--false' )
+    rowDiv.appendChild(cell)
+  })
+}
+// makes new row.div
+var newRowDiv = (element) => {
+  var rowDiv = document.createElement('div')
+  rowDiv.classList.add('row')
+  element.appendChild(rowDiv)
+  return rowDiv
+}
+
+var render = (data, element) => {
+  element.innerHTML = ''
+  data.map( row => {
+    renderRow(row, element)
+  })
+}
+
+var addLetters = (data, container) => {
+  var done = false
+  data.map( (row, rowIndex, rows) => {
+    row.map( (cell, cellIndex, cells) => {
+      if (cell && cells[cellIndex + 1] && !cells[cellIndex + 2] && !done) {
+        container.children[rowIndex].children[cellIndex].classList.add('z')
+        container.children[rowIndex].children[cellIndex + 1].classList.add('e')
+        done = true
+      }
+    })
+  })
+}
+
+
+
+
+// -------------- execute -------------- //
+
+var newCA = elements => {
+  elements.map((container, index) => {
+    var result = calculate(15)
+    render(result, container)
+    if (index) {
+      addLetters(result, container)
+    }
+  })
+}
+newCA(containers)

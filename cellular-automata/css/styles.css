@@ -5,12 +5,24 @@ html {
 body {
   padding: 0;
 }
+.wrapper {
+  position: relative;
+  padding-bottom: 15rem;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .row {
   display: block;
   clear: both;
 }
 .cell {
   display: block;
+  position: relative;
   float: left;
   margin: 0;
   width: 1rem;
@@ -19,15 +31,31 @@ body {
   line-height: 1;
   font-family: 'Source Code Pro', monospace;
 }
-.cell--true { background-color: #f06; }
-.cell--true:after {
-  content: '1';
-  color: #eee;
+
+.container.a { color: #f06 }
+.container.a .cell--true {  background-color: #f06; }
+.container.a .cell--false { background-color: transparent; }
+.container.a .cell--false::after {
+  content: '*';
+  color: currentColor;
 }
-.cell--false { background-color: #eee; }
-.cell--false:after {
-  content: '0';
-  color: #f06;
+
+.container.b { color: #000 }
+.container.b .cell--true {  background-color: #000; }
+.container.b .cell--false { background-color: transparent; }
+.container.b .cell--false::after {
+  content: '';
+  color: currentColor;
+
+}
+
+.z::before {
+  content: 'Z';
+  color: white;
+}
+.e::before {
+  content: 'E';
+  color: white;
 }
 
 .controls {
