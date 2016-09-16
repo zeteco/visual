@@ -1,4 +1,4 @@
-var ruleInput = document.querySelector('input.rule')
+// var ruleInput = document.querySelector('input.rule')
 // var containers = document.body.querySelectorAll('.container')
 var containers = Array.prototype.slice.call(document.querySelectorAll('.container'));
 
@@ -61,11 +61,12 @@ var calculate = ruleNumber => {
 // makes new divs and puts cells in row
 var renderRow = (row, element) => {
   var rowDiv = newRowDiv(element)
-  row.map( bool => {
+  return row.map( bool => {
     var cell = document.createElement('div')
     cell.classList.add('cell')
     cell.classList.add( bool ? 'cell--true' : 'cell--false' )
     rowDiv.appendChild(cell)
+    return cell
   })
 }
 // makes new row.div
@@ -78,36 +79,54 @@ var newRowDiv = (element) => {
 
 var render = (data, element) => {
   element.innerHTML = ''
-  data.map( row => {
-    renderRow(row, element)
-  })
+  return data.map( row => renderRow(row, element) )
+
 }
 
-var addLetters = (data, container) => {
-  var done = false
-  data.map( (row, rowIndex, rows) => {
-    row.map( (cell, cellIndex, cells) => {
-      if (cell && cells[cellIndex + 1] && !cells[cellIndex + 2] && !done) {
-        container.children[rowIndex].children[cellIndex].classList.add('z')
-        container.children[rowIndex].children[cellIndex + 1].classList.add('e')
-        done = true
+var findSpace = (array, string) => {
+  var line = array.toString().split(',').join('')
+  var string = Array.from(Array(string.length)).map( x => 1 )
+  .toString().split(',').join('')
+
+  var targetIndex = line.indexOf(string)
+  return targetIndex
+}
+
+var placeWords = (data, nodes, words) => {
+  var fullRow = -1
+  words.map( word => {
+    var done = false
+    data.map((row, index) => {
+      if (!done) {
+        var candidate = findSpace(row, word)
+        if (candidate !==  -1 && index > fullRow) {
+          fullRow = index
+          done = true
+          var letters = word.split('')
+          letters.map((letter, letterIndex) => {
+            nodes[index][candidate + letterIndex].innerHTML = letter
+            nodes[index][candidate + letterIndex].classList.add('letter')
+          })
+          // console.log(`row: ${index}, space: ${candidate}, fullRow: ${fullRow}`);
+        }
       }
     })
   })
 }
-
-
-
 
 // -------------- execute -------------- //
 
 var newCA = elements => {
   elements.map((container, index) => {
     var result = calculate(15)
-    render(result, container)
+    var nodes = render(result, container)
+    // console.log(nodes);
     if (index) {
-      addLetters(result, container)
+      placeWords(result, nodes, ['ZE', 'TE', 'CO', '2017'])
+      // addLetters(['BAR', 'RECHTS'], result, container)
     }
   })
 }
+
+
 newCA(containers)

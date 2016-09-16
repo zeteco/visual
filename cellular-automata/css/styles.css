@@ -33,29 +33,30 @@ body {
 }
 
 .container.a { color: #f06 }
-.container.a .cell--true {  background-color: #f06; }
+.container.a .cell--true {  background-color: #fff; }
 .container.a .cell--false { background-color: transparent; }
-.container.a .cell--false::after {
-  content: '*';
+.container.a .cell--true::after {
+  content: '​‌…';
   color: currentColor;
 }
 
-.container.b { color: #000 }
-.container.b .cell--true {  background-color: #000; }
+.container.b .cell--true {  background-color: #fff; }
 .container.b .cell--false { background-color: transparent; }
-.container.b .cell--false::after {
-  content: '';
+.container.b .cell--true::after {
+  content: '​‌(';
   color: currentColor;
-
 }
 
-.z::before {
-  content: 'Z';
-  color: white;
+
+
+.container.b .letter {
+  background-color: #000;
+  color: #fff;
 }
-.e::before {
-  content: 'E';
-  color: white;
+.container.b .letter.cell--true::after {
+  content: '';
+  background-color: white;
+  color: black;
 }
 
 .controls {
