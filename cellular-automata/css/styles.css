@@ -1,3 +1,17 @@
+:root {
+  --col-a: #f06;
+  --col-b: #000;
+  --icon-a: '.';
+  --icon-b: '.';
+  --pos-a-x: 0px;
+  --pos-a-y: 0px;
+  --pos-b-x: 0px;
+  --pos-b-y: 0px;
+  --size-a: 25px;
+  --size-b: 25px;
+
+}
+
 html {
   padding: 1rem;
   font-size: 25px;
@@ -10,10 +24,15 @@ body {
   padding-bottom: 15rem;
 }
 
-.container {
+.container.a {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: var(--pos-a-x);
+  left: var(--pos-a-y);
+}
+.container.b {
+  position: absolute;
+  top: var(--pos-b-x);
+  left: var(--pos-b-y);
 }
 
 .row {
@@ -25,38 +44,37 @@ body {
   position: relative;
   float: left;
   margin: 0;
-  width: 1rem;
-  height: 1rem;
+  width: var(--size-a);
+  height: var(--size-a);
   text-align: center;
   line-height: 1;
   font-family: 'Source Code Pro', monospace;
 }
 
-.container.a { color: #f06 }
-.container.a .cell--true {  background-color: #fff; }
+.b .cell {
+  width: var(--size-b);
+  height: var(--size-b);
+}
+
 .container.a .cell--false { background-color: transparent; }
 .container.a .cell--true::after {
-  content: '​‌…';
-  color: currentColor;
+  content: var(--icon-a);
+  color: var(--col-a);
 }
 
-.container.b .cell--true {  background-color: #fff; }
-.container.b .cell--false { background-color: transparent; }
 .container.b .cell--true::after {
-  content: '​‌(';
-  color: currentColor;
+  content: var(--icon-b);
+  color: var(--col-b);
 }
 
 
 
-.container.b .letter {
-  background-color: #000;
-  color: #fff;
+.container .letter {
+  background-color: #fff;
+  color: #000;
 }
-.container.b .letter.cell--true::after {
+.container .letter.cell--true::after {
   content: '';
-  background-color: white;
-  color: black;
 }
 
 .controls {

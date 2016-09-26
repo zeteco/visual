@@ -184,7 +184,7 @@ var placeWords = (data, nodes, words) => {
 
 var newCA = elements => {
   elements.map((container, index) => {
-    var result = calculate(15)
+    var result = calculate(110)
     var nodes = render(result, container)
     // console.log(nodes);
     if (index) {
