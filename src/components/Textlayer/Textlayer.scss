@@ -1,0 +1,11 @@
+@import "../../variables";
+
+.textlayer {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: $grid-count-w * $unit-w;
+}

@@ -1,0 +1,11 @@
+@import "../../variables";
+
+.space {
+  // background-color: pink;
+  display: block;
+  font-size: $letter-h;
+  line-height: $letter-h;
+  width: 3 * $unit-w;
+  height: 3 * $unit-h;
+
+}

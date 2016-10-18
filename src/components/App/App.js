@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 require('./App.scss');
 import CellAutomata from '../CellAutomata/CellAutomata';
+import Textlayer from '../Textlayer/Textlayer';
+import Text from '../Text/Text';
+import Space from '../Space/Space';
 import AutomataLib from '../../helper/CellAutomata';
 
 class App extends Component {
@@ -36,6 +39,16 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Textlayer data={dataA}>
+          <Text text="ZE" />
+          <Space/>
+          <Space/>
+          <Space/>
+          <Text text="TE" />
+          <Space/>
+          <Text text="CO" />
+        </Textlayer>
+
         <CellAutomata
           data={dataA}
         />
