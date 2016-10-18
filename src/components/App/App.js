@@ -8,6 +8,14 @@ class App extends Component {
   constructor() {
     super();
     this.automata = new AutomataLib();
+
+    var body = document.getElementsByTagName('body')[0];
+    // window.innerWidth;
+    var remSize = parseFloat(
+      window.getComputedStyle(body, null)
+      .getPropertyValue('font-size')
+    );
+    console.log('remSize', remSize)
   }
 
   render() {
@@ -16,14 +24,14 @@ class App extends Component {
       columns: 15,
       rows: 15,
       rule: 3,
-      seed: 51
+      seed: 51,
     });
 
     var dataB = this.automata.generate({
       columns: 15,
       rows: 15,
       rule: 3,
-      seed: 52
+      seed: 52,
     });
 
     return (

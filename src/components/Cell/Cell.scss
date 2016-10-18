@@ -4,13 +4,13 @@
   position: relative;
 
   &__item {
-    height: 2rem;
-    width: 2rem;
+    height: 1rem;
+    width: 1rem;
     overflow: hidden;
     font-family: 'Source Code Pro', monospace;
     text-align: center;
     line-height: 1;
-    font-size: 1.7rem
+    font-size: 0.85rem
   }
   &__item--active {
     background-color: black;
