@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .Cell {
   $scaler: 2;
 
@@ -6,8 +8,8 @@
   position: relative;
 
   &__item {
-    height: 1rem * $scaler;
-    width: 1rem * $scaler;
+    height: $unit-h;
+    width: $unit-w;
     overflow: hidden;
     font-family: 'Source Code Pro', monospace;
     text-align: center;

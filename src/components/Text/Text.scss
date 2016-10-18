@@ -1,0 +1,64 @@
+@import "../../variables";
+
+
+
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: grey;
+  top: 0;
+  left: 0;
+
+  width: $text-w;
+  height: $text-h;
+
+  font-size: 3 * $unit-h;
+  font-weight: 900;
+  margin-bottom: $unit-h;
+
+
+  .wrapper {
+    background-color: white;
+    display: flex;
+    // border: 0.5rem solid black;
+    // border-radius: 1rem;
+  }
+
+  .letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $letter-w;
+    height: $letter-h;
+  }
+}
+
+.text--alex {
+  top: 0;
+  left: 0;
+
+  width: 8rem;
+  height: 4rem;
+
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+
+  .wrapper {
+    background-color: grey;
+    display: flex;
+    box-shadow: 1rem 1rem 0 black;
+  }
+
+  .letter {
+    // color: #f06;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+  }
+}
