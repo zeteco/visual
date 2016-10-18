@@ -5,9 +5,9 @@ class Cell extends Component {
   render() {
     var cell;
     if (this.props.active) {
-      cell = <div className="Cell__item Cell__item--active"></div>;
+      cell = <div className="Cell__item Cell__item--active">{this.props.text}</div>;
     } else {
-      cell = <div className="Cell__item Cell__item--passive"></div>;
+      cell = <div className="Cell__item Cell__item--passive">{this.props.text}</div>;
     }
 
     return (
@@ -18,6 +18,7 @@ class Cell extends Component {
 
 Cell.propTypes = {
   active: React.PropTypes.bool.isRequired,
+  text: React.PropTypes.string,
 };
 
 export default Cell;
