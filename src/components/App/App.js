@@ -21,12 +21,12 @@ class App extends Component {
     console.log('remSize', remSize);
 
     this.state = {
-      ruleA: 111,
+      ruleA: 110,
       ruleB: 3,
       seedA: 51,
       seedB: 52,
-      fillA: '/',
-      emptyA: '​‌$',
+      fillA: '[',
+      emptyA: '​‌.',
       fillB: '/',
       emptyB: '​‌[',
     };
@@ -103,8 +103,8 @@ class App extends Component {
   render() {
 
     var dataA = this.automata.generate({
-      columns: 15,
-      rows: 15,
+      columns: 45,
+      rows: 25,
       rule: this.state.ruleA,
       seed: this.state.seedA,
     });
@@ -120,11 +120,30 @@ class App extends Component {
       <div className="App">
         <div className="visual">
           <Textlayer data={dataA}>
+            <Space/>
             <Text text="ZE" />
             <Space/>
             <Space/>
             <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
             <Text text="TE" />
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
+            <Space/>
             <Space/>
             <Text text="CO" />
           </Textlayer>
@@ -133,6 +152,8 @@ class App extends Component {
             fill={this.state.fillA}
             empty={this.state.emptyA}
           />
+
+          {/*
           <br/>
           <br/>
           <br/>
@@ -140,7 +161,7 @@ class App extends Component {
             data={dataB}
             fill={this.state.fillB}
             empty={this.state.emptyB}
-          />
+          />*/}
         </div>
         <div className="ui">
 
@@ -159,7 +180,7 @@ class App extends Component {
           <br/>
 
           <div className="value">
-            <div className="value--caption">Rule A <span className="value--valuerange">0–255</span> </div>
+            <div className="value--caption">Rule <span className="value--valuerange">0–255</span> </div>
             <input
               className="value--input"
               type="text"
@@ -169,7 +190,7 @@ class App extends Component {
           </div>
 
           <div className="value">
-            <div className="value--caption">Seed A <span className="value--valuerange">any</span> </div>
+            <div className="value--caption">Seed <span className="value--valuerange">any</span> </div>
             <input
               className="value--input"
               type="text"
@@ -179,7 +200,7 @@ class App extends Component {
           </div>
 
           <div className="value">
-            <div className="value--caption">Fill A <span className="value--valuerange">one char</span> </div>
+            <div className="value--caption">Fill <span className="value--valuerange">one char</span> </div>
             <input
               className="value--input"
               type="text"
@@ -188,7 +209,7 @@ class App extends Component {
             />
           </div>
           <div className="value">
-            <div className="value--caption">Empty A <span className="value--valuerange">one char</span> </div>
+            <div className="value--caption">Empty <span className="value--valuerange">one char</span> </div>
             <input
               className="value--input"
               type="text"
@@ -201,6 +222,8 @@ class App extends Component {
           <br/>
           <br/>
 
+
+{/*
           <div className="value">
             <div className="value--caption">Rule B <span className="value--valuerange">0–255</span> </div>
             <input
@@ -239,7 +262,7 @@ class App extends Component {
               onChange={this.changeEmptyB}
             />
           </div>
-
+*/}
         </div>
 
 
