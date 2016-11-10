@@ -18,7 +18,6 @@ class App extends Component {
       window.getComputedStyle(body, null)
       .getPropertyValue('font-size')
     );
-    console.log('remSize', remSize);
 
     this.state = {
       ruleA: 110,
@@ -26,7 +25,7 @@ class App extends Component {
       seedA: 51,
       seedB: 52,
       columns: 45,
-      rows: 25,
+      rows: 27,
       fill: '/',
       empty: '​‌\\',
     };
@@ -103,34 +102,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="visual">
-          <Textlayer data={data}>
-            <Space/>
-            <Text text="ZE" />
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Text text="TE" />
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Space/>
-            <Text text="CO" />
-          </Textlayer>
+          <Textlayer
+            width={this.state.columns}
+            height={this.state.rows}
+            phrases={'ZE|TE|CO|BAR'}
+            />
           <CellAutomata
             data={data}
             fill={this.state.fill}

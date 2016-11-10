@@ -1,11 +1,11 @@
 @import "../../variables";
 
 .textlayer {
-  display: flex;
-  flex-wrap: wrap;
   position: absolute;
+  display: block;
   z-index: 1;
-  top: $grid-padding * $unit-h;
-  left: $grid-padding * $unit-w;
-  width: $grid-count-w * $unit-w;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: (2 * $unit-h) (2 * $unit-w);
 }
