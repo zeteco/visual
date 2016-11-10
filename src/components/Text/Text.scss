@@ -1,14 +1,10 @@
 @import "../../variables";
 
-
-
-
 .text {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background-color: lightblue;
   top: 0;
   left: 0;
 
@@ -40,25 +36,26 @@
   top: 0;
   left: 0;
 
-  width: 8rem;
-  height: 4rem;
+  width: 8 * $unit-w;
+  height: 4 * $unit-h;
 
   font-size: 3rem;
   font-weight: 900;
   margin-bottom: 1rem;
 
   .wrapper {
-    background-color: grey;
+    background-color: $color-box;
     display: flex;
-    box-shadow: 1rem 1rem 0 black;
+    box-shadow: 0.8rem 1rem 0 $color-shadow;
   }
 
   .letter {
-    // color: #f06;
+    color: $color-glyphs;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 3rem;
     height: 3rem;
+    transform: translateY(-1px);
   }
 }

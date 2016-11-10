@@ -12,7 +12,7 @@ class Text extends Component {
       return <div className="letter">{ letter }</div>
     })
     return (
-      <div className="text">
+      <div className="text--alex">
         <div className="wrapper">
           { letters }
         </div>

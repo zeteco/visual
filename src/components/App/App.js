@@ -25,9 +25,9 @@ class App extends Component {
       ruleB: 3,
       seedA: 51,
       seedB: 52,
-      fillA: '[',
-      emptyA: '​‌.',
-      fillB: '/',
+      fillA: '/',
+      emptyA: '​‌\\',
+      fillB: '–',
       emptyB: '​‌[',
     };
   }
