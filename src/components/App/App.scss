@@ -5,42 +5,4 @@
   .visual {
     position: relative;
   }
-
-  .ui {
-    position: absolute;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    padding: 1em;
-    width: 20rem;
-    height: 100%;
-    right: 0;
-    top: 0
-  }
-
-  .value {
-    width: 100%;
-    padding-top: 1rem;
-  }
-  .value--caption {
-    font-weight: 900;
-    padding-bottom: 0.3rem;
-  }
-  .value--valuerange {
-    font-size: 0.7rem;
-    font-weight: 200;
-  }
-  .value--button {
-    background-color: gray;
-    font-size: 0.9rem;
-    padding: 0.1rem 0.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    text-transform: uppercase;
-  }
-  .value--input {
-    width: 100%;
-    font-size: 1rem;
-    background-color: darken(white, 10%);
-  }
-
 }
