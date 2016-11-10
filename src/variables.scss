@@ -1,0 +1,30 @@
+$grid-padding: 2;
+$grid-count-w: 45 - (2 * $grid-padding);
+$grid-count-h: 25 - (2 * $grid-padding);
+
+$unit-w: 0.8rem;
+$unit-h: 1rem;
+
+
+/*-------- text --------*/
+$text-w: 9 * $unit-w;
+$text-h: 5 * $unit-h;
+
+$letter-w: 3.5 * $unit-w;
+$letter-h: 3.5 * $unit-h;
+
+$color-pink: #f06;
+$color-blue: #06f;
+$color-yellow: #ff0;
+$color-green: green;
+
+$color-black: #333;
+$color-white: #ddd;
+
+$color-false: $color-white;
+$color-true: $color-pink;
+$color-background: $color-black;
+
+$color-glyphs: $color-black;
+$color-box: $color-pink;
+$color-shadow: $color-black;
