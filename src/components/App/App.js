@@ -25,10 +25,10 @@ class App extends Component {
       ruleB: 3,
       seedA: 51,
       seedB: 52,
-      fillA: '/',
-      emptyA: '​‌\\',
-      fillB: '–',
-      emptyB: '​‌[',
+      columns: 45,
+      rows: 25,
+      fill: '/',
+      empty: '​‌\\',
     };
   }
 
@@ -39,48 +39,40 @@ class App extends Component {
     return newVal;
   }
 
-  changeRuleA = (event) => {
+  changeRule = (event) => {
     this.setState({
       ruleA: this.range8Bit(event.target.value),
     });
   }
-  changeSeedA = (event) => {
+  changeSeed = (event) => {
     this.setState({
       seedA: event.target.value,
     });
   }
-  changeFillA = (event) => {
+  changeFill = (event) => {
     this.setState({
-      fillA: event.target.value || '',
+      fill: event.target.value || '',
     });
   }
-  changeEmptyA = (event) => {
+  changeEmpty = (event) => {
     this.setState({
-      emptyA: event.target.value || '',
+      empty: event.target.value || '',
     });
   }
 
 
-  changeRuleB = (event) => {
+  changeColumns = (event) => {
     this.setState({
-      ruleB: this.range8Bit(event.target.value),
+      columns: parseInt(event.target.value,10)
     });
   }
-  changeSeedB = (event) => {
+
+  changeRows = (event) => {
     this.setState({
-      seedB: event.target.value,
+      rows: parseInt(event.target.value,10)
     });
   }
-  changeFillB = (event) => {
-    this.setState({
-      fillB: event.target.value || '',
-    });
-  }
-  changeEmptyB = (event) => {
-    this.setState({
-      emptyB: event.target.value || '',
-    });
-  }
+
   rndSeed = () => {
       this.setState({
         seedA: Math.random().toString(36).substr(2, 6),
@@ -99,27 +91,19 @@ class App extends Component {
       });
   }
 
-
   render() {
 
-    var dataA = this.automata.generate({
-      columns: 45,
-      rows: 25,
+    var data = this.automata.generate({
+      columns: this.state.columns,
+      rows: this.state.rows,
       rule: this.state.ruleA,
       seed: this.state.seedA,
-    });
-
-    var dataB = this.automata.generate({
-      columns: 15,
-      rows: 15,
-      rule: this.state.ruleB,
-      seed: this.state.seedB,
     });
 
     return (
       <div className="App">
         <div className="visual">
-          <Textlayer data={dataA}>
+          <Textlayer data={data}>
             <Space/>
             <Text text="ZE" />
             <Space/>
@@ -148,24 +132,12 @@ class App extends Component {
             <Text text="CO" />
           </Textlayer>
           <CellAutomata
-            data={dataA}
-            fill={this.state.fillA}
-            empty={this.state.emptyA}
+            data={data}
+            fill={this.state.fill}
+            empty={this.state.empty}
           />
-
-          {/*
-          <br/>
-          <br/>
-          <br/>
-          <CellAutomata
-            data={dataB}
-            fill={this.state.fillB}
-            empty={this.state.emptyB}
-          />*/}
         </div>
         <div className="ui">
-
-
           <div className="value">
             <div className="value--caption">Random Seeds </div>
             <span className="value--button" onClick={this.rndSeed}>generate</span>
@@ -174,10 +146,25 @@ class App extends Component {
             <div className="value--caption">Random Rules </div>
             <span className="value--button" onClick={this.rndRule}>generate</span>
           </div>
-
           <br/>
-          <br/>
-          <br/>
+          <div className="value">
+            <div className="value--caption">Columns <span className="value--valuerange">0–~</span> </div>
+            <input
+              className="value--input"
+              type="text"
+              value={this.state.columns}
+              onChange={this.changeColumns}
+            />
+          </div>
+          <div className="value">
+            <div className="value--caption">Rows <span className="value--valuerange">0–~</span> </div>
+            <input
+              className="value--input"
+              type="text"
+              value={this.state.rows}
+              onChange={this.changeRows}
+            />
+          </div>
 
           <div className="value">
             <div className="value--caption">Rule <span className="value--valuerange">0–255</span> </div>
@@ -185,7 +172,7 @@ class App extends Component {
               className="value--input"
               type="text"
               value={this.state.ruleA}
-              onChange={this.changeRuleA}
+              onChange={this.changeRule}
             />
           </div>
 
@@ -195,7 +182,7 @@ class App extends Component {
               className="value--input"
               type="text"
               value={this.state.seedA}
-              onChange={this.changeSeedA}
+              onChange={this.changeSeed}
             />
           </div>
 
@@ -204,8 +191,8 @@ class App extends Component {
             <input
               className="value--input"
               type="text"
-              value={this.state.fillA}
-              onChange={this.changeFillA}
+              value={this.state.fill}
+              onChange={this.changeFill}
             />
           </div>
           <div className="value">
@@ -213,74 +200,14 @@ class App extends Component {
             <input
               className="value--input"
               type="text"
-              value={this.state.emptyA}
-              onChange={this.changeEmptyA}
+              value={this.state.empty}
+              onChange={this.changeEmpty}
             />
           </div>
-
-          <br/>
-          <br/>
-          <br/>
-
-
-{/*
-          <div className="value">
-            <div className="value--caption">Rule B <span className="value--valuerange">0–255</span> </div>
-            <input
-              className="value--input"
-              type="text"
-              value={this.state.ruleB}
-              onChange={this.changeRuleB}
-            />
-          </div>
-
-          <div className="value">
-            <div className="value--caption">Seed B <span className="value--valuerange">any</span> </div>
-            <input
-              className="value--input"
-              type="text"
-              value={this.state.seedB}
-              onChange={this.changeSeedB}
-            />
-          </div>
-
-          <div className="value">
-            <div className="value--caption">Fill B <span className="value--valuerange">one char</span> </div>
-            <input
-              className="value--input"
-              type="text"
-              value={this.state.fillB}
-              onChange={this.changeFillB}
-            />
-          </div>
-          <div className="value">
-            <div className="value--caption">Empty B <span className="value--valuerange">one char</span> </div>
-            <input
-              className="value--input"
-              type="text"
-              value={this.state.emptyB}
-              onChange={this.changeEmptyB}
-            />
-          </div>
-*/}
         </div>
-
-
-
-
-
-
       </div>
     );
   }
 }
-// App.propTypes = {
-//   columns: React.PropTypes.number.isRequired,
-//   rows: React.PropTypes.number.isRequired,
-//   rule: React.PropTypes.number.isRequired,
-//   seed: React.PropTypes.number.isRequired,
-// };
-
-
 
 export default App;

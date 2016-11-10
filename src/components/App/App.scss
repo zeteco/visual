@@ -1,15 +1,20 @@
 .App {
   width: 100%;
+  overflow: hidden;
 
   .visual {
-    width: calc(100% - 20rem);
-    float: left;
     position: relative;
   }
 
   .ui {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    padding: 1em;
     width: 20rem;
-    float: left;
+    height: 100%;
+    right: 0;
+    top: 0
   }
 
   .value {
