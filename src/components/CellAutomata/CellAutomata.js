@@ -12,8 +12,12 @@ class CellAutomata extends Component {
 
   render() {
 
-    var rows = this.props.data.map(function(row) {
-      return <Row data={row}/>;
+    var rows = this.props.data.map((row) => {
+      return (<Row
+        data={row}
+        fill={this.props.fill}
+        empty={this.props.empty}
+      />);
     });
 
     return (
@@ -26,6 +30,8 @@ class CellAutomata extends Component {
 
 CellAutomata.propTypes = {
   data: React.PropTypes.array.isRequired,
+  fill: React.PropTypes.string,
+  empty: React.PropTypes.string,
 };
 
 export default CellAutomata;

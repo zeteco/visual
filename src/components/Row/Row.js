@@ -10,11 +10,17 @@ class Row extends Component {
 
   render() {
 
-    var cells = this.props.data.map(function(cell) {
+    var cells = this.props.data.map((cell) => {
       if (cell) {
-        return (<Cell active={true}/>);
+        return (<Cell
+          active={true}
+          text={this.props.fill}
+        />);
       } else {
-        return (<Cell active={false}/>);
+        return (<Cell
+          active={false}
+          text={this.props.empty}
+        />);
       }
     });
 
@@ -28,6 +34,8 @@ class Row extends Component {
 
 Row.propTypes = {
   data: React.PropTypes.array.isRequired,
+  fill: React.PropTypes.string,
+  empty: React.PropTypes.string,
 };
 
 export default Row;

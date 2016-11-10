@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   position: absolute;
   z-index: 1;
-  top: 0;
-  left: 0;
+  top: $grid-padding * $unit-h;
+  left: $grid-padding * $unit-w;
   width: $grid-count-w * $unit-w;
 }

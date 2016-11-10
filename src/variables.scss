@@ -1,5 +1,6 @@
-$grid-count-w: 15;
-$grid-count-h: 15;
+$grid-padding: 2;
+$grid-count-w: 45 - (2 * $grid-padding);
+$grid-count-h: 25 - (2 * $grid-padding);
 
 $unit-w: 0.8rem;
 $unit-h: 1rem;
