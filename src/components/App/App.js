@@ -23,6 +23,7 @@ class App extends Component {
     this.state = {
       rule: 110,
       seed: 51,
+      words: 'ZE,TE,CO,BAR',
       columns: 45,
       rows: 27,
       fill: '/',
@@ -32,6 +33,7 @@ class App extends Component {
 
   changeRule = (rule) => this.setState({ rule });
   changeSeed = (seed) => this.setState({ seed });
+  changeWords = (words) => this.setState({ words });
   changeFill = (fill) => this.setState({ fill });
   changeEmpty = (empty) => this.setState({ empty });
   changeColumns = (columns) => this.setState({ columns });
@@ -52,7 +54,7 @@ class App extends Component {
           <Textlayer
             width={this.state.columns}
             height={this.state.rows}
-            phrases={'ZE|TE|CO|BAR'}
+            words={this.state.words}
             />
           <CellAutomata
             data={data}
@@ -64,12 +66,14 @@ class App extends Component {
             columns={this.state.columns}
             rows={this.state.rows}
             rule={this.state.rule}
+            words={this.state.words}
             seed={this.state.seed}
             fill={this.state.fill}
             empty={this.state.empty}
 
             changeRule={this.changeRule}
             changeSeed={this.changeSeed}
+            changeWords={this.changeWords}
             changeFill={this.changeFill}
             changeEmpty={this.changeEmpty}
             changeColumns={this.changeColumns}
