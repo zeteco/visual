@@ -15,7 +15,7 @@ class Textlayer extends Component {
 
     let words = this.props.words
       .split(',')
-      .map( phrase => <Text text={phrase}/> );
+      .map((word, i) => <Text text={word} key={word + i}/> );
 
     return (
       <div className="textlayer" style={style}>
