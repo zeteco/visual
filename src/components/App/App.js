@@ -28,6 +28,7 @@ class App extends Component {
       rows: 27,
       fill: '/',
       empty: '​‌\\',
+      isUiVisible: true,
     };
   }
 
@@ -39,14 +40,22 @@ class App extends Component {
   changeColumns = (columns) => this.setState({ columns });
   changeRows = (rows) => this.setState({rows});
 
-  render() {
+  toggle = () => {
+    this.setState({
+      isUiVisible: !this.state.isUiVisible
+    })
+  }
 
+  render() {
     var data = this.automata.generate({
       columns: this.state.columns,
       rows: this.state.rows,
       rule: this.state.rule,
       seed: this.state.seed,
     });
+
+    let toggleValue = '⚙';
+    if(this.state.isUiVisible) toggleValue = 'X';
 
     return (
       <div className="App">
@@ -61,8 +70,15 @@ class App extends Component {
             fill={this.state.fill}
             empty={this.state.empty}
           />
-
+          <input
+            type="button"
+            className="ui-toggle"
+            value={toggleValue}
+            onClick={this.toggle}
+            />
           <Ui
+            visible={this.state.isUiVisible}
+
             columns={this.state.columns}
             rows={this.state.rows}
             rule={this.state.rule}

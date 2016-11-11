@@ -62,9 +62,11 @@ class Ui extends Component {
   }
 
   render() {
+    let isVisible = '';
+    if(!this.props.visible) isVisible = ' ui--hidden';
 
     return (
-      <div className="ui">
+      <div className={`ui${isVisible}`}>
         <div className="value">
           <div className="value--caption">Random Seeds </div>
           <span className="value--button" onClick={this.rndSeed}>generate</span>

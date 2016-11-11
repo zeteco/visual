@@ -17,8 +17,8 @@ class CellAutomata extends Component {
         data={row}
         fill={this.props.fill}
         empty={this.props.empty}
-        index={i}
-        key={'row-' + i}
+        rowNumber={i}
+        key={`r${i}`}
       />);
     });
 

@@ -8,6 +8,13 @@
   right: 0;
   top: 0;
   bottom: 0;
+  z-index: 10;
+  transition: all 1000ms ease-out;
+
+  &--hidden {
+    transform: translateX(100%);
+    box-shadow: 0 0 20px rgba(0,0,0,0);
+  }
 
   .value {
     width: 100%;
