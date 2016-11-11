@@ -28,7 +28,7 @@ class App extends Component {
       rows: 27,
       fill: '/',
       empty: '​‌\\',
-      isUiVisible: true,
+      isUiVisible: false,
     };
   }
 
