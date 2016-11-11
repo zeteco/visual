@@ -15,13 +15,13 @@ class Row extends Component {
         return (<Cell
           active={true}
           text={this.props.fill}
-          key={'cell-' + i}
+          key={`c.${this.props.index}.${i}`}
         />);
       } else {
         return (<Cell
           active={false}
           text={this.props.empty}
-          key={'cell-' + i}
+          key={`c.${this.props.index}.${i}`}
         />);
       }
     });
@@ -37,6 +37,7 @@ class Row extends Component {
 Row.propTypes = {
   data: React.PropTypes.array.isRequired,
   fill: React.PropTypes.string,
+  index: React.PropTypes.number,
   empty: React.PropTypes.string,
 };
 
