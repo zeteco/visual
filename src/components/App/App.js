@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 require('./App.scss');
 import CellAutomata from '../CellAutomata/CellAutomata';
 import Textlayer from '../Textlayer/Textlayer';
@@ -6,6 +6,7 @@ import Text from '../Text/Text';
 import Space from '../Space/Space';
 import AutomataLib from '../../helper/CellAutomata';
 import Ui from '../Ui/Ui';
+import UiToggle from '../UiToggle/UiToggle';
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
     // window.innerWidth;
     var remSize = parseFloat(
       window.getComputedStyle(body, null)
-      .getPropertyValue('font-size')
+        .getPropertyValue('font-size')
     );
 
     this.state = {
@@ -38,9 +39,9 @@ class App extends Component {
   changeFill = (fill) => this.setState({ fill });
   changeEmpty = (empty) => this.setState({ empty });
   changeColumns = (columns) => this.setState({ columns });
-  changeRows = (rows) => this.setState({rows});
+  changeRows = (rows) => this.setState({ rows });
 
-  toggle = () => {
+  toggleClickHandler = () => {
     this.setState({
       isUiVisible: !this.state.isUiVisible
     })
@@ -55,7 +56,7 @@ class App extends Component {
     });
 
     let toggleValue = '⚙';
-    if(this.state.isUiVisible) toggleValue = 'X';
+    if (this.state.isUiVisible) toggleValue = 'X';
 
     return (
       <div className="App">
@@ -69,12 +70,10 @@ class App extends Component {
             data={data}
             fill={this.state.fill}
             empty={this.state.empty}
-          />
-          <input
-            type="button"
-            className="ui-toggle"
-            value={toggleValue}
-            onClick={this.toggle}
+            />
+          <UiToggle
+            toggleValue={toggleValue}
+            toggleClickHandler={this.toggleClickHandler}
             />
           <Ui
             visible={this.state.isUiVisible}
@@ -94,7 +93,7 @@ class App extends Component {
             changeEmpty={this.changeEmpty}
             changeColumns={this.changeColumns}
             changeRows={this.changeRows}
-          />
+            />
         </div>
       </div>
     );
