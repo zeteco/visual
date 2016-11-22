@@ -42,10 +42,8 @@ class App extends Component {
   changeRows = (rows) => this.setState({ rows });
 
   toggleClickHandler = () => {
-    this.setState({
-      isUiVisible: !this.state.isUiVisible
-    })
-  }
+    this.setState({ isUiVisible: !this.state.isUiVisible })
+  };
 
   render() {
     var data = this.automata.generate({
@@ -54,9 +52,6 @@ class App extends Component {
       rule: this.state.rule,
       seed: this.state.seed,
     });
-
-    let toggleValue = '⚙';
-    if (this.state.isUiVisible) toggleValue = 'X';
 
     return (
       <div className="App">
@@ -72,7 +67,7 @@ class App extends Component {
             empty={this.state.empty}
             />
           <UiToggle
-            toggleValue={toggleValue}
+            isUiVisible={this.state.isUiVisible}
             toggleClickHandler={this.toggleClickHandler}
             />
           <Ui
