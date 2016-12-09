@@ -15,11 +15,9 @@
     font-size: 0.85rem;
   }
   &__item--active {
-    background-color: $color-background;
     color: $color-true;
   }
   &__item--passive {
-    background-color: $color-background;
     color: $color-false;
   }
 }

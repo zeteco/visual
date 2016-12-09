@@ -15,3 +15,15 @@ body, #react-root {
   width: 100%;
   position: absolute;
 }
+
+@media print {
+  .ui {
+    display: none;
+  }
+  html, body {
+    -webkit-print-color-adjust: exact;
+    overflow: hidden;
+    font-size: 19px;
+  }
+
+}

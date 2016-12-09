@@ -8,11 +8,22 @@ class Text extends Component {
   }
 
   render() {
-    const letters = this.props.text.split('').map( letter => {
-      return <div className="letter">{ letter }</div>
-    })
+    let random = Math.floor(Math.random() * 7 ) * 0.8;
+
+    let style = {
+      paddingLeft: random + 'rem',
+    };
+
+    const letters = this.props.text.split('').map((letter, i) => {
+      return (
+        <div className="letter" key={`text-${i}`} >
+          { letter }
+        </div>
+      );
+    });
+
     return (
-      <div className="text--alex">
+      <div className="text" style={style}>
         <div className="wrapper">
           { letters }
         </div>
@@ -21,8 +32,8 @@ class Text extends Component {
   }
 }
 
-// Text.propTypes = {
-//   string: React.PropTypes.string,
-// };
+Text.propTypes = {
+  text: React.PropTypes.string,
+};
 
 export default Text;

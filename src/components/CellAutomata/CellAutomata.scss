@@ -1,4 +1,6 @@
-.CellAutomata {
+@import "../../variables";
 
-  
+.CellAutomata {
+  display: inline-block;
+  background-color: $color-background;
 }
