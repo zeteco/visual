@@ -10,9 +10,7 @@ class Cell extends Component {
       cell = <div className="Cell__item Cell__item--passive">{this.props.text}</div>;
     }
 
-    return (
-      <div className="Cell">{cell}</div>
-    );
+    return <div className="Cell">{cell}</div>;
   }
 }
 

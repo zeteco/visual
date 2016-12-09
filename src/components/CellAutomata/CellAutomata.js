@@ -12,11 +12,13 @@ class CellAutomata extends Component {
 
   render() {
 
-    var rows = this.props.data.map((row) => {
+    var rows = this.props.data.map((row, i) => {
       return (<Row
         data={row}
         fill={this.props.fill}
         empty={this.props.empty}
+        rowNumber={i}
+        key={`r${i}`}
       />);
     });
 

@@ -19,6 +19,11 @@ class Ui extends Component {
       event.target.value,
     );
   }
+  changeWords = (event) => {
+    this.props.changeWords(
+      event.target.value,
+    );
+  }
   changeFill = (event) => {
     this.props.changeFill(
       event.target.value || '',
@@ -57,9 +62,11 @@ class Ui extends Component {
   }
 
   render() {
+    let isVisible = '';
+    if(!this.props.visible) isVisible = ' ui--hidden';
 
     return (
-      <div className="ui">
+      <div className={`ui${isVisible}`}>
         <div className="value">
           <div className="value--caption">Random Seeds </div>
           <span className="value--button" onClick={this.rndSeed}>generate</span>
@@ -69,6 +76,15 @@ class Ui extends Component {
           <span className="value--button" onClick={this.rndRule}>generate</span>
         </div>
         <br/>
+        <div className="value">
+          <div className="value--caption">Words <span className="value--valuerange">separated by ","</span> </div>
+          <input
+            className="value--input"
+            type="text"
+            value={this.props.words}
+            onChange={this.changeWords}
+          />
+        </div>
         <div className="value">
           <div className="value--caption">Columns <span className="value--valuerange">0–~</span> </div>
           <input
