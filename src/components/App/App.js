@@ -40,7 +40,6 @@ class App extends Component {
     this.state = {
       rule: 110,
       seed: 'asnely',
-      // words: 'ZE,TE,CO,!<small>[BAR](http:/...)</small>',
       words: '!Zeltlager der Technik- und Computerfreunde **21st – 24th July 2017** [→ more info](https://wiki.zeteco.ch/),Ze,Te,Co',
       autosize: true,
       autorule: true,
