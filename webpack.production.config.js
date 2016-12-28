@@ -35,6 +35,10 @@ module.exports = {
 		filename: '[chunkhash].js'
 	},
 	resolve: {
+	  alias: {
+	    'react': 'react-lite',
+	    'react-dom': 'react-lite'
+	  },
 		extensions: ['', '.js', '.jsx']
 	},
 	module: {
