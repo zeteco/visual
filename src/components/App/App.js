@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-require('./App.scss');
+import styles from './App.scss';
 import CellAutomata from '../CellAutomata/CellAutomata';
 import Textlayer from '../Textlayer/Textlayer';
 import Text from '../Text/Text';
@@ -15,22 +15,75 @@ class App extends Component {
     this.automata = new AutomataLib();
 
     var body = document.getElementsByTagName('body')[0];
-    // window.innerWidth;
-    var remSize = parseFloat(
-      window.getComputedStyle(body, null)
-        .getPropertyValue('font-size')
-    );
+
+
+    // setup the trottled event optimizedResize
+    (function() {
+        var throttle = function(type, name, obj) {
+            obj = obj || window;
+            var running = false;
+            var func = function() {
+                if (running) { return; }
+                running = true;
+                 requestAnimationFrame(function() {
+                    obj.dispatchEvent(new CustomEvent(name));
+                    running = false;
+                });
+            };
+            obj.addEventListener(type, func);
+        };
+
+        /* init - you can init any event */
+        throttle("resize", "optimizedResize");
+    })();
 
     this.state = {
       rule: 110,
-      seed: 51,
-      words: 'ZE,TE,CO,BAR',
+      seed: 'asnely',
+      // words: 'ZE,TE,CO,!<small>[BAR](http:/...)</small>',
+      words: '!Zeltlager der Technik- und Computerfreunde **21st – 24th July 2017** [→ more info](https://wiki.zeteco.ch/),Ze,Te,Co',
+      autosize: true,
+      autorule: true,
       columns: 45,
       rows: 27,
       fill: '/',
       empty: '​‌\\',
       isUiVisible: false,
     };
+
+
+    // handle event
+    window.addEventListener('optimizedResize', () => {
+
+      if(this.state.autosize) {
+        // window.innerWidth;
+        var remSize = parseFloat(
+          window.getComputedStyle(body, null)
+            .getPropertyValue('font-size')
+        );
+
+        this.setState({
+          rows: Math.floor(window.innerHeight / remSize),
+          columns: Math.floor(window.innerWidth / (remSize * 0.8)),
+        });
+      }
+    });
+  }
+
+  componentDidMount() {
+    // if dom is ready set the correct row and columns (autosize: true)
+    if(this.state.autosize) {
+      window.dispatchEvent(new Event('optimizedResize'));
+    }
+    setInterval(() => {
+      console.log('update')
+      if(this.state.autorule) {
+        this.setState({
+          rule: Math.floor(Math.random() * 255),
+        });
+      }
+    }, 2000);
+
   }
 
   changeRule = (rule) => this.setState({ rule });
@@ -38,12 +91,11 @@ class App extends Component {
   changeWords = (words) => this.setState({ words });
   changeFill = (fill) => this.setState({ fill });
   changeEmpty = (empty) => this.setState({ empty });
+  changeAutosize = (autosize) => this.setState({ autosize });
+  changeAutorule = (autorule) => this.setState({ autorule });
   changeColumns = (columns) => this.setState({ columns });
   changeRows = (rows) => this.setState({ rows });
-
-  toggleClickHandler = () => {
-    this.setState({ isUiVisible: !this.state.isUiVisible })
-  };
+  toggleClickHandler = () => this.setState({ isUiVisible: !this.state.isUiVisible });
 
   render() {
     var data = this.automata.generate({
@@ -54,12 +106,13 @@ class App extends Component {
     });
 
     return (
-      <div className="App">
-        <div className="visual">
+      <div className={styles.app}>
+        <div className={styles.visual}>
           <Textlayer
             width={this.state.columns}
             height={this.state.rows}
             words={this.state.words}
+            seed={this.state.seed}
             />
           <CellAutomata
             data={data}
@@ -74,6 +127,8 @@ class App extends Component {
             visible={this.state.isUiVisible}
 
             columns={this.state.columns}
+            autosize={this.state.autosize}
+            autorule={this.state.autorule}
             rows={this.state.rows}
             rule={this.state.rule}
             words={this.state.words}
@@ -88,6 +143,8 @@ class App extends Component {
             changeEmpty={this.changeEmpty}
             changeColumns={this.changeColumns}
             changeRows={this.changeRows}
+            changeAutosize={this.changeAutosize}
+            changeAutorule={this.changeAutorule}
             />
         </div>
       </div>

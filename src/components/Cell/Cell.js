@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-require('./Cell.scss');
+import styles from './Cell.scss';
 
 class Cell extends Component {
   render() {
     var cell;
     if (this.props.active) {
-      cell = <div className="Cell__item Cell__item--active">{this.props.text}</div>;
+      cell = <div className={`${styles.cell__item} ${styles['cell__item--active']}`}>{this.props.text}</div>;
     } else {
-      cell = <div className="Cell__item Cell__item--passive">{this.props.text}</div>;
+      cell = <div className={`${styles.cell__item} ${styles['cell__item--passive']}`}>{this.props.text}</div>;
     }
 
-    return <div className="Cell">{cell}</div>;
+    return <div className={styles.cell}>{cell}</div>;
   }
 }
 

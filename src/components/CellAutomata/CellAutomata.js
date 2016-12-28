@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-require('./CellAutomata.scss');
+import styles from './CellAutomata.scss';
 import Row from '../Row/Row';
 import AutomataLib from '../../helper/CellAutomata';
 
@@ -23,7 +23,7 @@ class CellAutomata extends Component {
     });
 
     return (
-      <div className="CellAutomata">
+      <div className={styles.cellAutomata}>
         {rows}
       </div>
     );

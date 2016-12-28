@@ -1,11 +1,19 @@
-// Application entrypoint.
-
-// Load up the application styles
-require('./index.scss');
-
-// Render the top-level React component
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 import App from './components/App/App.js';
+import styles from './index.scss';
 
-ReactDOM.render(<App />, document.getElementById('react-root'));
+render( <AppContainer><App/></AppContainer>, document.querySelector("#app"));
+
+if (module && module.hot) {
+  module.hot.accept('./components/App/App.js', () => {
+    const App = require('./components/App/App.js').default;
+    render(
+      <AppContainer>
+        <App/>
+      </AppContainer>,
+      document.querySelector("#app")
+    );
+  });
+}

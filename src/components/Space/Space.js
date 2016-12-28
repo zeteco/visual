@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-require('./Space.scss');
+import styles from './Space.scss';
 
 class Space extends Component {
 
@@ -9,7 +9,7 @@ class Space extends Component {
 
   render() {
     return (
-      <div className="space"></div>
+      <div className={styles.space}></div>
     );
   }
 }

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-require('./UiToggle.scss');
+import React from 'react';
+import styles from './UiToggle.scss';
 
 const UiToggle = (props) => {
   const { isUiVisible, toggleClickHandler} = props;
@@ -10,7 +10,7 @@ const UiToggle = (props) => {
   return (
     <input
       type="button"
-      className="ui-toggle"
+      className={styles.uiToggle}
       value={toggleValue(isUiVisible)}
       onClick={toggleClickHandler} />
   );
