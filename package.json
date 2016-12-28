@@ -1,34 +1,49 @@
 {
   "name": "zeteco-visuals",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "ZeTeCo Visuals",
+  "main": "''",
   "scripts": {
-    "start": "node server.js"
+    "build": "webpack --config webpack.production.config.js --progress --profile --colors",
+    "start": "webpack-dev-server --progress --profile --colors",
+    "lint": "eslint --ext js --ext jsx src || exit 0",
+    "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors"
   },
-  "keywords": [
-    "ZeTeCo",
-    "visual",
-    "camp"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeteco/visual"
+  },
+  "author": "ZeTeCo",
   "license": "MIT",
-  "devDependencies": {
-    "babel-core": "6.10.4",
-    "babel-loader": "6.0.1",
-    "babel-preset-es2015": "6.9.0",
-    "babel-preset-react": "6.11.1",
-    "babel-preset-stage-0": "6.5.0",
-    "css-loader": "0.23.1",
-    "eslint": "2.7.0",
-    "eslint-plugin-react": "5.2.2",
-    "node-sass": "3.8.0",
-    "sass-loader": "4.0.0",
-    "style-loader": "0.13.1",
-    "webpack": "1.13.1",
-    "webpack-dev-server": "1.14.1"
-  },
+  "homepage": "https://github.com/zeteco/visual#readme",
   "dependencies": {
-    "react": "15.2.1",
-    "react-dom": "15.2.1",
+    "node-sass": "^3.13.0",
+    "react": "15.4.1",
+    "react-dom": "15.4.1",
+    "sass-loader": "^4.0.2",
     "seedrandom": "^2.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "6.20.0",
+    "babel-loader": "6.2.9",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-react": "6.16.0",
+    "babel-runtime": "^6.20.0",
+    "css-loader": "0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "0.9.0",
+    "html-webpack-plugin": "^2.24.1",
+    "postcss-loader": "^1.2.0",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-lite": "^0.15.30",
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.14.0",
+    "webpack-cleanup-plugin": "^0.4.1",
+    "webpack-dashboard": "^0.2.0",
+    "webpack-dev-server": "1.16.2"
   }
 }

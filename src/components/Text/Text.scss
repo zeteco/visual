@@ -5,6 +5,28 @@
   height: 4 * $unit-h;
 }
 
+
+@mixin letter-box {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  color: $color-glyphs;
+  background-color: $color-box;
+
+   @include letter-size;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: $unit-h;
+    left: $unit-w;
+    z-index: -1;
+    background-color: $color-shadow;
+    @include letter-size;
+
+  }
+}
+
 .text {
   display: block;
   top: 0;
@@ -12,25 +34,25 @@
   font-size: 3rem;
   font-weight: 900;
   margin-bottom: 2rem;
-  
-  .letter {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    color: $color-glyphs;
-    background-color: $color-box;
+}
 
-    @include letter-size;
+.letter {
+    @include letter-box;
+}
 
-    &:after {
-      content: "";
-      position: absolute;
-      top: $unit-h;
-      left: $unit-w;
-      z-index: -1;
-      background-color: $color-shadow;
-      @include letter-size;
+.fakemarkdown {
 
-    }
+   @include letter-box;
+
+  width: 6 * $letter-w;
+  font-size: 1rem;
+  text-align: left;
+
+  &:after {
+    width: 6 * $letter-w;
+  }
+
+  &__emphasis {
+    color: white;
   }
 }

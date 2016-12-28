@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-require('./Text.scss');
+import styles from './Text.scss';
 
 class Text extends Component {
 
@@ -8,23 +8,30 @@ class Text extends Component {
   }
 
   render() {
-    let random = Math.floor(Math.random() * 7 ) * 0.8;
 
-    let style = {
-      paddingLeft: random + 'rem',
-    };
+    var letters = null;
 
-    const letters = this.props.text.split('').map((letter, i) => {
-      return (
-        <div className="letter" key={`text-${i}`} >
-          { letter }
-        </div>
-      );
-    });
+    if(this.props.text.charAt(0) === '!') {
+      //make a wobbly markdown parser...
+      const fakeMarkdown = 	this.props.text
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/^!(.*)$/gi, `<div class="${styles.fakemarkdown}">$1</div>`)
+        .replace(/\*\*([^*]*)\*\*/gi, `<span class="${styles.fakemarkdown__emphasis}">$1</span>`)
+        .replace(/\[([^[]*)\]\(([^)]*)\)/gi, '<a href="$2" target="_blank">$1</a>');
+      letters = <div style={this.props.style}><div dangerouslySetInnerHTML={{ __html: fakeMarkdown }}></div></div>;
+    } else {
+      letters = this.props.text.split('').map((letter, i) => {
+        return (
+          <div className={styles.letter} key={`text-${i}`} >
+            { letter }
+          </div>
+        );
+      });
+    }
 
     return (
-      <div className="text" style={style}>
-        <div className="wrapper">
+      <div className={styles.text} style={this.props.style}>
+        <div className={styles.wrapper}>
           { letters }
         </div>
       </div>
@@ -34,6 +41,7 @@ class Text extends Component {
 
 Text.propTypes = {
   text: React.PropTypes.string,
+  style: React.PropTypes.object,
 };
 
 export default Text;

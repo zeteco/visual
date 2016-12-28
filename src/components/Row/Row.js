@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-require('./Row.scss');
+import styles from './Row.scss';
 import Cell from '../Cell/Cell';
 
 class Row extends Component {
@@ -29,7 +29,7 @@ class Row extends Component {
     });
 
     return (
-      <div className="Row">
+      <div className={styles.row}>
         {cells}
       </div>
     );

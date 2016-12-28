@@ -6,7 +6,7 @@ html {
   font-size: 20px;
   min-height: 100%;
   width: 100%;
-
+  background-color: #333;
 }
 body, #react-root {
   margin: 0;
@@ -14,6 +14,20 @@ body, #react-root {
   min-height: 100%;
   width: 100%;
   position: absolute;
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: orange;
+  &:hover {
+    color: white;
+  }
 }
 
 @media print {
@@ -25,5 +39,4 @@ body, #react-root {
     overflow: hidden;
     font-size: 19px;
   }
-
 }
