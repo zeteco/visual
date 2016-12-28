@@ -1,0 +1,36 @@
+@import "../../variables";
+
+@mixin letter-size {
+  width: 4 * $unit-w;
+  height: 4 * $unit-h;
+}
+
+.text {
+  display: block;
+  top: 0;
+  left: 0;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  
+  .letter {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    color: $color-glyphs;
+    background-color: $color-box;
+
+    @include letter-size;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: $unit-h;
+      left: $unit-w;
+      z-index: -1;
+      background-color: $color-shadow;
+      @include letter-size;
+
+    }
+  }
+}
