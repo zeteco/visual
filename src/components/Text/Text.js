@@ -17,6 +17,7 @@ class Text extends Component {
         .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
         .replace(/^!(.*)$/gi, `<div class="${styles.fakemarkdown}">$1</div>`)
         .replace(/\*\*([^*]*)\*\*/gi, `<span class="${styles.fakemarkdown__emphasis}">$1</span>`)
+        .replace(/\^\^([^\^]*)\^\^/gi, `<sup>$1</sup>`)
         .replace(/\[([^[]*)\]\(([^)]*)\)/gi, '<a href="$2" target="_blank">$1</a>');
       letters = <div style={this.props.style}><div dangerouslySetInnerHTML={{ __html: fakeMarkdown }}></div></div>;
     } else {
