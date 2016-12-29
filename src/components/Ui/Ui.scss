@@ -9,7 +9,7 @@
   top: 0;
   bottom: 0;
   z-index: 10;
-  transition: all 1000ms ease-out;
+  transition: all 500ms ease-out;
 }
 
 .inner {
@@ -53,4 +53,5 @@
   width: 100%;
   font-size: 1rem;
   background-color: darken(white, 10%);
+  box-sizing: border-box;
 }

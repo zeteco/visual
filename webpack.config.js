@@ -23,7 +23,7 @@ loaders.push({
 	exclude: /[\/\\](node_modules|bower_components|public\/)[\/\\]/,
 	loaders: [
 		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap',
 		'postcss',
 		'sass'
 	]
@@ -35,7 +35,7 @@ loaders.push({
 	exclude: /[\/\\](node_modules|bower_components|public\/)[\/\\]/,
 	loaders: [
 		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap'
 	]
 });
 
@@ -46,7 +46,7 @@ module.exports = {
 	],
 	devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
 	output: {
-		publicPath: '/',
+		publicPath: './',
 		path: path.join(__dirname, 'public'),
 		filename: 'bundle.js'
 	},
