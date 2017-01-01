@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "6.9.2"
+env:
+  global:
+  - secure: c+eRnU/QJxck8EUZwsxhPsZeiTitrWlExaUx0b8K32EcQyMFFyy6hm2FpMNTnyIyjmYwf9Uel7jy36STjeQsNH/DEafNim7hHsoGXMWmjDTjGF3fd6qedceR99tksTuA8ZWcQ6z1lz5Hhvm62wgsFFNsJc3hnUXgmILKx7jbCt8=
+  - secure: c+eRnU/QJxck8EUZwsxhPsZeiTitrWlExaUx0b8K32EcQyMFFyy6hm2FpMNTnyIyjmYwf9Uel7jy36STjeQsNH/DEafNim7hHsoGXMWmjDTjGF3fd6qedceR99tksTuA8ZWcQ6z1lz5Hhvm62wgsFFNsJc3hnUXgmILKx7jbCt8=
+  - secure: pye/cF8We2gGZoRFNAgZgX6rIRvsZc82fWrN0EkkQuKcc/OEOlDIcgKNxByA7DPwAJ7f3c7d+Ly86GxwuhQwnuJd0Cp3eePLfMnwueO3QQ80OIvBOOVkZSqt2dT8V97e85Jky1OXKnXs0fBo8rOjjCeXOWs8fH+N+QJt7yZQjnQ=
+before_install:
+  - sudo apt-get install lftp
+install:
+  - npm install
+  - bower install
+script:
+  - npm run build
+after_success:
+  - script: "./deploy.sh"
