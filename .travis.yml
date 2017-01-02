@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - 6
+# safelist
+# branches:
+#   only:
+#   - master
 env:
   global:
   - secure: "NELY80Wt3t+gR1eiDJSjsBiRqhVpy4/NeR8OT669UC7+7yfkftIVKLgl7qVYq26mN3aP7oQoupdwbIgMxcLbijHrBTfYnltK9OQ+S2rGJ6mAmMs131vGQc8QfxfbGQSwS38lKjV/UrvLz++G3NBPrKFbpRzMzTEzty6s4D6RBSjLAcSzqqJJdajIv3SbVlUZ4ZBhLpWOQ5qQkLp7E4FNmcK+5NDSriAXvlzpzRhPXj4XnrRPyc0CugulsxSeLaz8amgL8vUr+Fkb2n4nfZbOKgRWEXwZU8a1kIbkrRZfZrVQ5FMOQCNUWyNLAWjVIzb3dmgo7BkfvMk2esgJGcmebRNP4pLQIppOl2jfNzKu+fXrQEL95LifHlA4zrLtXmOUXb0N9RzPOWOHPdL42iBX5R3I7cJTB8CEK6PP4n32idmFmUSVpyz4tZ5XIPjj9lzieAXYhHHJlcuscPZL0u2Vyh7i2GvPAeVqM2nI5K1pn1fJGWrhamZrrKeqDEn+xREBMoj75x/NNVgaPL3b8TUspnNjbtgIqPrpT0f1gTb1NR4Z3Q0z3hn7hRJba9aV5fPQKbQY7eUv5OE2CnaHAD8XOYnuTvMjc409WL0yEFLwfKGHZm2YVthwl6+A4KaDJu4I4gGfyNzpzcjXbe7XP32mo+tHRhpErRiab3yAnuf+vBk="
@@ -15,4 +19,4 @@ install:
 script:
   - npm run build
 after_success:
-  - script: "./deploy.sh"
+  - ./deploy.sh

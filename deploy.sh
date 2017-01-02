@@ -8,5 +8,8 @@ abort() {
 [ -z $FTP_PASS ] && abort "FTP_PASS is undefined"
 [ -z $FTP_USER ] && abort "FTP_USER is undefined"
 [ -z $FTP_SITE ] && abort "FTP_SITE is undefined"
-lftp -u $FTP_USER,$FTP_PASS $FTP_SITE \
- -e 'mirror -c -e -R source ~ ; exit'
+
+if [ "$TRAVIS_BRANCH" == "master" ]; then
+  lftp -u $FTP_USER,$FTP_PASS $FTP_SITE \
+   -e 'mirror -c -e -R source ~ ; exit'
+fi
