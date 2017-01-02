@@ -1,5 +1,4 @@
 #!/bin/bash
-ls -las
 abort() {
     local message=$1
     echo $message
@@ -11,5 +10,7 @@ abort() {
 
 if [ "$TRAVIS_BRANCH" == "master" ]; then
   lftp -u $FTP_USER,$FTP_PASS $FTP_SITE \
-   -e 'mirror -c -e -R source ~ ; exit'
+   -e 'mirror -c -e -R public ~ ; exit'
+else
+  echo "no deployment on other branches than master."
 fi
