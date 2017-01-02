@@ -3,8 +3,9 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './components/App/App.js';
 import styles from './index.scss';
+import '../assets/images/favicon.ico';
 
-// window.setTimeout -> delay the start until after the CSS has been injected 
+// window.setTimeout -> delay the start until after the CSS has been injected
 window.setTimeout(() => render( <AppContainer><App/></AppContainer>, document.querySelector("#app")));
 
 if (module && module.hot) {
