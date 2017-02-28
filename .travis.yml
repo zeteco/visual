@@ -12,7 +12,7 @@ env:
   - secure: "hcB2rCnPIk9VLhjDPsTcMQ3dYq469I5g/zVQ1n7fHVD3AgGiT9fIcJvDMeYZ6L3CC9Y0y/c1nDvVV9oBTsjxd3aCUCb53u+N0UIulaQ+ZcmO7YZG3kUwmtiSKCkQSiAkGFMUo8WmoJ2TUnrK2ctvLvmhW+Ke44Zu1loVO6+LsrhrBjtmuEmNhoL1m1G9HzapPGDNkW9dCRDp1nPfw2jrUYvOQPEio1mOVy/yFI0QOX1+1R4eo4IqcdAeGUqq3ULgPELCURzWiwd8/x9SMuuQpc9SNpCAgANJKGUqkcQmW3W/kwB+CvCDwDE6n1CEhDmH4vR/FoPQjGTR43oUzjGiMuJ8BCP7AWdFUmsENkWEfefYC8oTu9O2PtNY5kuhPD/A4dFjWoPnpsN9eryg4CsE//HuIyNBbKD0Y7/GTbJ0RSP+Ktm/BTzd8uUDLrIOfLx3I015f+cwUfZpw7Hywno0QP7z960hqfggNLlV7/xiGFG+g+34tKaRD45r7cqtIb/3fH90FcFgEY9c7iciQshjZdwWh6GM/p5YA0qPXHhnmTKaIwFtEqjyDayrItRCSMSFqUmLRK8wOz9wwcNJIXEIywqRqkkitnO/opU0QHVtIMnrdvBJCmfjxfPrfVQPvvdh1a5/wOzqw04e/nJ9RiZMflBx1sA1IRWg/Mn1xVD7Ggc="
 before_install:
   - sudo apt-get install lftp
-  - sudo cd logo_creater
+  - cd logo_creator
 install:
   - npm install
 #  - npm install -g bower
