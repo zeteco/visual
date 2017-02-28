@@ -10,7 +10,7 @@ abort() {
 
 if [ "$TRAVIS_BRANCH" == "master" ]; then
   lftp -u $FTP_USER,$FTP_PASS $FTP_SITE \
-   -e 'mirror -c -e -R public ~ ; exit'
+   -e 'mirror -c -e -R logo_creator/public ~ ; exit'
 else
   echo "no deployment on other branches than master."
 fi
