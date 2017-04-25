@@ -13,7 +13,7 @@ class Text extends Component {
 
     if(this.props.text.charAt(0) === '!') {
       //make a wobbly markdown parser...
-      const fakeMarkdown = 	this.props.text
+      const fakeMarkdown = this.props.text
         .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
         .replace(/&lt;br&gt;/g,'<br>')
         .replace(/^!(.*)$/gi, `<div class="${styles.fakemarkdown}">$1</div>`)
