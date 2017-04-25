@@ -15,6 +15,7 @@ class Text extends Component {
       //make a wobbly markdown parser...
       const fakeMarkdown = 	this.props.text
         .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/&lt;br&gt;/g,'<br>')
         .replace(/^!(.*)$/gi, `<div class="${styles.fakemarkdown}">$1</div>`)
         .replace(/\*\*([^*]*)\*\*/gi, `<span class="${styles.fakemarkdown__emphasis}">$1</span>`)
         .replace(/\^\^([^\^]*)\^\^/gi, `<sup>$1</sup>`)
