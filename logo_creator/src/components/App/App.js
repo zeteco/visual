@@ -40,7 +40,7 @@ class App extends Component {
     this.state = {
       rule: 110,
       seed: 'asnely',
-      words: '!Zeltlager der Technik- und Computerfreunde **21^^st^^ – 24^^th^^ July 2017**,!<br>[→ wiki with infos](https://wiki.zeteco.ch/)<br>[→ wemakeit-campaign](https://wemakeit.com/projects/maker-hacker-camp-zeteco-2017),Ze,Te,Co',
+      words: '!Zeltlager der Technik- und Computerfreunde **21^^st^^ – 24^^th^^ July 2017**,!<br>[→ buy tickets](https://tickets.zeteco.ch)<br>[→ wiki with infos](https://wiki.zeteco.ch/),Ze,Te,Co',
       autosize: true,
       autorule: true,
       columns: 45,
