@@ -112,7 +112,7 @@ class Ui extends Component {
             <div className={styles.value__caption}>Style</div>
             <select onChange={this.changeStyle}>
                <option value="normal">Normal</option>
-               <option value="print">Printer Friendly</option>
+               <option value="print">Printer friendly (A4 → cols: 46, rows: 54)</option>
              </select>
           </div>
 
