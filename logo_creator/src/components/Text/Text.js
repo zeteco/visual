@@ -36,6 +36,11 @@ class Text extends Component {
         height: ${height}rem;
       `;
 
+      let texttype = 'normal';
+      if ( /^!\s+$/.test(text)) {
+        texttype = 'empty';
+      }
+
       // <br> is preserved
       // **text** = emphasis text
       // ^^txt^^ = supertext
@@ -43,16 +48,21 @@ class Text extends Component {
       const fakeMarkdown = text
         .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
         .replace(/&lt;br&gt;/g,'<br>')
-        .replace(/^!(.*)$/gi, `<div class="${styles.fakemarkdown}" style="${style}">$1<div class="${styles.shade}" style="${style}"></div></div>`)
+        .replace(/^!(.*)$/gi, `<div class="${styles.fakemarkdown} ${texttype}" style="${style}">$1<div class="${styles.shade}" style="${style}"></div></div>`)
         .replace(/\*\*([^*]*)\*\*/gi, `<span class="${styles.fakemarkdown__emphasis}">$1</span>`)
         .replace(/\^\^([^\^]*)\^\^/gi, `<sup>$1</sup>`)
         .replace(/\[([^[]*)\]\(([^)]*)\)/gi, '<a href="$2" target="_blank">$1</a>');
       letters = <div style={this.props.style}><div dangerouslySetInnerHTML={{ __html: fakeMarkdown }}></div></div>;
     } else {
       letters = this.props.text.split('').map((letter, i) => {
+
+        let lettertype = 'normal';
+        if (letter === ' ') {
+          lettertype = 'empty';
+        }
+
         return (
-          <div className={styles.letter} key={`text-${i}`} >
-            { letter }<div className={styles.shade} />
+          <div className={`${styles.letter} ${lettertype}`} key={`text-${i}`} >{ letter }<div className={styles.shade} />
           </div>
         );
       });

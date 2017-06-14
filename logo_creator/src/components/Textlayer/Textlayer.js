@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Text from '../Text/Text';
+import Textline from '../Textline/Textline';
 import seedrandom from 'seedrandom';
 import styles from './Textlayer.scss';
 
@@ -24,7 +24,7 @@ class Textlayer extends Component {
       // .replace( /!{([0-9.]+),([0-9.]+)}/g, '!{$1\\,$2}')
       // .replace(/\\?\,/g, function (t) { return t === ',' ? '\u000B' : ','; }).split('\u000B')
       .split('\n')
-      .map((word, i) => <Text text={word} key={word + i} style={{paddingLeft: `${(Math.floor(random() * 7 ) * 0.8)}rem`}}/> );
+      .map((word, i) => <Textline text={word} key={word + i} style={{paddingLeft: `${(Math.floor(random() * 7 ) * 0.8)}rem`}}/> );
 
     return (
       <div className={`${styles.textlayer} ${this.props.style}`} style={widthStyle}>

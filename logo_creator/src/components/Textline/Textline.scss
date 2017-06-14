@@ -1,0 +1,10 @@
+@import "../../variables";
+
+.textline {
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

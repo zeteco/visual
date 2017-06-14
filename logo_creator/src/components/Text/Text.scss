@@ -12,7 +12,7 @@
   text-align: center;
   color: $color-glyphs;
   background-color: $color-box;
-   @include letter-size;
+  @include letter-size;
 
   .shade {
     @include shade;
@@ -35,16 +35,28 @@
   left: 0;
   font-weight: 900;
   margin-bottom: 2rem;
+  float: left;
+
 }
+
 
 .letter {
   font-size: 3rem;
+  line-height: 1.25;
   @include letter-box;
+
+  &:global(.empty) {
+    visibility: hidden;
+  }
+}
+.wrapper {
+  line-height: 0;
 }
 
 .fakemarkdown {
 
-   @include letter-box;
+  @include letter-box;
+  line-height: 1.25;
 
   width: 6 * $letter-w;
   font-size: 1rem;
@@ -56,6 +68,10 @@
 
   &__emphasis {
     color: white;
+  }
+
+  &:global(.empty) {
+    visibility: hidden;
   }
 }
 
