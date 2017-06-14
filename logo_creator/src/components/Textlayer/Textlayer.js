@@ -11,7 +11,8 @@ class Textlayer extends Component {
 
   render() {
     let widthStyle = {
-      width: 0.8 * this.props.width + 'rem',
+      width: `${0.8 * this.props.width}rem`,
+      left: `calc(50% - ${0.8 * this.props.width/2}rem)`,
     };
 
     // initalize the seed
@@ -19,11 +20,14 @@ class Textlayer extends Component {
 
     let words = this.props.words
       // split on , but give the option to escape with \, >>> http://stackoverflow.com/questions/7329972/how-to-split-a-string-in-js-with-some-exceptions
-      .replace(/\\?\,/g, function (t) { return t === ',' ? '\u000B' : ','; }).split('\u000B')
+      // for comma separations
+      // .replace( /!{([0-9.]+),([0-9.]+)}/g, '!{$1\\,$2}')
+      // .replace(/\\?\,/g, function (t) { return t === ',' ? '\u000B' : ','; }).split('\u000B')
+      .split('\n')
       .map((word, i) => <Text text={word} key={word + i} style={{paddingLeft: `${(Math.floor(random() * 7 ) * 0.8)}rem`}}/> );
 
     return (
-      <div className={styles.textlayer} style={widthStyle}>
+      <div className={`${styles.textlayer} ${this.props.style}`} style={widthStyle}>
         {words}
       </div>
     );
@@ -35,6 +39,7 @@ Textlayer.propTypes = {
   height: React.PropTypes.number,
   words: React.PropTypes.string,
   seed: React.PropTypes.string,
+  style: React.PropTypes.string,
 };
 
 export default Textlayer;

@@ -49,6 +49,15 @@ class Ui extends Component {
       event.target.checked
     );
   }
+  changeStyle = (event) => {
+    console.log('style',
+      event.target.value,
+      event.target.name)
+    this.props.changeStyle(
+      event.target.value || 'normal',
+      event.target.name
+    );
+  }
   changeAutorule = (event) => {
     this.props.changeAutorule(
       event.target.checked
@@ -88,16 +97,27 @@ class Ui extends Component {
           </div>
           <br/>
           <div className={styles.value}>
-            <div className={styles.value__caption}>Words <span className={styles.value__valuerange}>separated by ","</span> </div>
-            <input
+            <div className={styles.value__caption}>Words <span className={styles.value__valuerange}>separated by line</span> </div>
+            <textarea
+              name="word"
+              cols="40"
+              rows="5"
               className={styles.value__input}
-              type="text"
               value={this.props.words}
               onChange={this.changeWords}
             />
           </div>
+
           <div className={styles.value}>
-            <div className={styles.value__caption}>Update Rules all 2 sec. <span className={styles.value__valuerange}>true/false</span> </div>
+            <div className={styles.value__caption}>Style</div>
+            <select onChange={this.changeStyle}>
+               <option value="normal">Normal</option>
+               <option value="print">Printer Friendly</option>
+             </select>
+          </div>
+
+          <div className={styles.value}>
+            <div className={styles.value__caption}>Update Rules all 3 sec. <span className={styles.value__valuerange}>true/false</span> </div>
             <input
               className={styles.value__input}
               type="checkbox"

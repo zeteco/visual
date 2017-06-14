@@ -23,7 +23,7 @@ class CellAutomata extends Component {
     });
 
     return (
-      <div className={styles.cellAutomata}>
+      <div className={`${styles.cellAutomata} ${this.props.style}`}>
         {rows}
       </div>
     );
@@ -34,6 +34,7 @@ CellAutomata.propTypes = {
   data: React.PropTypes.array.isRequired,
   fill: React.PropTypes.string,
   empty: React.PropTypes.string,
+  style: React.PropTypes.string,
 };
 
 export default CellAutomata;

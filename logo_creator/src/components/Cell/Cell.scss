@@ -20,4 +20,9 @@
   &__item--passive {
     color: $color-false;
   }
+
+}
+
+:global(.print) .cell__item--passive {
+  color: black;
 }

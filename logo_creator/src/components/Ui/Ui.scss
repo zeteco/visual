@@ -10,6 +10,12 @@
   bottom: 0;
   z-index: 10;
   transition: all 500ms ease-out;
+
+  textarea {
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+  }
 }
 
 @media print {

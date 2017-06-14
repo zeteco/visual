@@ -12,19 +12,21 @@
   text-align: center;
   color: $color-glyphs;
   background-color: $color-box;
-
    @include letter-size;
 
-  &:after {
-    content: "";
-    position: absolute;
-    top: $unit-h;
-    left: $unit-w;
-    z-index: -1;
-    background-color: $color-shadow;
-    @include letter-size;
-
+  .shade {
+    @include shade;
   }
+}
+
+@mixin shade {
+  content: "";
+  position: absolute;
+  top: $unit-h;
+  left: $unit-w;
+  z-index: -1;
+  background-color: $color-shadow;
+  @include letter-size;
 }
 
 .text {
@@ -48,11 +50,23 @@
   font-size: 1rem;
   text-align: left;
 
-  &:after {
-    width: 6 * $letter-w;
+  .shade {
+    @include shade;
   }
 
   &__emphasis {
     color: white;
+  }
+}
+
+
+:global(.print) .letter,
+:global(.print) .fakemarkdown {
+}
+
+:global(.print) .fakemarkdown {
+  background-color: white;
+  &__emphasis {
+    color: $color-box;
   }
 }

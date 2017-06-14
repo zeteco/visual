@@ -40,7 +40,12 @@ class App extends Component {
     this.state = {
       rule: 110,
       seed: 'asnely',
-      words: '!Zeltlager der Technik- und Computerfreunde **21^^st^^ – 24^^th^^ July 2017**,Ze,Te,Co,![→ Wiki with infos](https://wiki.zeteco.ch/)<br>[→ Tickets](https://tickets.zeteco.ch)<br>[→ Call for Participation](https://frab.zeteco.ch)',
+      words: `!Zeltlager der Technik- und Computerfreunde <br>**21^^st^^ – 24^^th^^ July 2017**
+Ze
+Te
+Co
+!{19,4}[→ Wiki with infos](https://wiki.zeteco.ch/)<br>[→ Tickets](https://tickets.zeteco.ch)<br>[→ Call for Participation](https://frab.zeteco.ch)`,
+      style: 'normal',
       autosize: true,
       autorule: true,
       columns: 45,
@@ -81,13 +86,14 @@ class App extends Component {
           rule: Math.floor(Math.random() * 255),
         });
       }
-    }, 2000);
+    }, 3000);
 
   }
 
   changeRule = (rule) => this.setState({ rule });
   changeSeed = (seed) => this.setState({ seed });
   changeWords = (words) => this.setState({ words });
+  changeStyle = (style) => this.setState({ style });
   changeFill = (fill) => this.setState({ fill });
   changeEmpty = (empty) => this.setState({ empty });
   changeAutosize = (autosize) => this.setState({ autosize });
@@ -112,11 +118,13 @@ class App extends Component {
             height={this.state.rows}
             words={this.state.words}
             seed={this.state.seed}
+            style={this.state.style}
             />
           <CellAutomata
             data={data}
             fill={this.state.fill}
             empty={this.state.empty}
+            style={this.state.style}
             />
           <UiToggle
             isUiVisible={this.state.isUiVisible}
@@ -138,6 +146,7 @@ class App extends Component {
             changeRule={this.changeRule}
             changeSeed={this.changeSeed}
             changeWords={this.changeWords}
+            changeStyle={this.changeStyle}
             changeFill={this.changeFill}
             changeEmpty={this.changeEmpty}
             changeColumns={this.changeColumns}

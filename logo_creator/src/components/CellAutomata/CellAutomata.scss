@@ -2,5 +2,11 @@
 
 .cellAutomata {
   display: inline-block;
+  display: table;
+  margin: 0 auto;
   background-color: $color-background;
+}
+
+:global(.print).cellAutomata {
+  background-color: white;
 }
