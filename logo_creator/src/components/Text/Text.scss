@@ -31,13 +31,13 @@
   display: block;
   top: 0;
   left: 0;
-  font-size: 3rem;
   font-weight: 900;
   margin-bottom: 2rem;
 }
 
 .letter {
-    @include letter-box;
+  font-size: 3rem;
+  @include letter-box;
 }
 
 .fakemarkdown {

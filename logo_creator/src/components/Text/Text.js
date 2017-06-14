@@ -33,9 +33,7 @@ class Text extends Component {
 
     return (
       <div className={styles.text} style={this.props.style}>
-        <div className={styles.wrapper}>
-          { letters }
-        </div>
+        <div className={styles.wrapper}>{ letters }</div>
       </div>
     );
   }
