@@ -41,10 +41,10 @@ class App extends Component {
       rule: 110,
       seed: 'asnely',
       words: `!Zeltlager der Technik- und Computerfreunde <br>**21^^st^^ – 24^^th^^ July 2017**
-Ze
-Te
+Ze,!{2,2} ,!{16,2}[→ Wiki with infos](https://wiki.zeteco.ch/)
+Te,!{2,2} ,!{8,2}[→ Tickets](https://tickets.zeteco.ch)
 Co
-!{19,4}[→ Wiki with infos](https://wiki.zeteco.ch/)<br>[→ Tickets](https://tickets.zeteco.ch)<br>[→ Call for Participation](https://frab.zeteco.ch)`,
+!{20,2}[→ Call for Participation](https://frab.zeteco.ch)`,
       style: 'normal',
       autosize: true,
       autorule: true,
