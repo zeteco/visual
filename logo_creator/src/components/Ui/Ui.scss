@@ -12,6 +12,12 @@
   transition: all 500ms ease-out;
 }
 
+@media print {
+  .ui {
+    display: none;
+  }
+}
+
 .inner {
   position: relative;
   width: 100%;

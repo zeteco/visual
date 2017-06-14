@@ -21,3 +21,9 @@
     opacity: 0.5;
   }
 }
+
+@media print {
+  .uiToggle {
+    display: none;
+  }
+}
