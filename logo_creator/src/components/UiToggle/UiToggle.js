@@ -11,6 +11,7 @@ const UiToggle = (props) => {
     <input
       type="button"
       className={toggleValue(isUiVisible)}
+      value={''}
       onClick={toggleClickHandler} />
   );
 };
