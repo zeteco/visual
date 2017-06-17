@@ -98,8 +98,8 @@ Co
   changeEmpty = (empty) => this.setState({ empty });
   changeAutosize = (autosize) => this.setState({ autosize });
   changeAutorule = (autorule) => this.setState({ autorule });
-  changeColumns = (columns) => this.setState({ columns });
-  changeRows = (rows) => this.setState({ rows });
+  changeColumns = (columns) => this.setState({ autosize: false, columns });
+  changeRows = (rows) => this.setState({ autosize: false, rows });
   toggleClickHandler = () => this.setState({ isUiVisible: !this.state.isUiVisible });
 
   render() {

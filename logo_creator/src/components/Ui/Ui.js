@@ -124,7 +124,7 @@ class Ui extends Component {
             <input
               className={styles.value__input}
               type="checkbox"
-              defaultChecked={this.props.autorule}
+              checked={this.props.autorule}
               onChange={this.changeAutorule}
             />
           </div>
@@ -133,7 +133,7 @@ class Ui extends Component {
             <input
               className={styles.value__input}
               type="checkbox"
-              defaultChecked={this.props.autosize}
+              checked={this.props.autosize}
               onChange={this.changeAutosize}
             />
           </div>
