@@ -27,7 +27,7 @@ class Textlayer extends Component {
       .map((word, i) => <Textline text={word} key={word + i} style={{paddingLeft: `${(Math.floor(random() * 7 ) * 0.8)}rem`}}/> );
 
     return (
-      <div className={`${styles.textlayer} ${this.props.style}`} style={widthStyle}>
+      <div className={styles.textlayer} style={widthStyle}>
         {words}
       </div>
     );
@@ -39,7 +39,6 @@ Textlayer.propTypes = {
   height: React.PropTypes.number,
   words: React.PropTypes.string,
   seed: React.PropTypes.string,
-  style: React.PropTypes.string,
 };
 
 export default Textlayer;

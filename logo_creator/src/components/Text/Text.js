@@ -57,12 +57,15 @@ class Text extends Component {
       letters = this.props.text.split('').map((letter, i) => {
 
         let lettertype = 'normal';
+        let printLetter = letter;
         if (letter === ' ') {
           lettertype = 'empty';
+          printLetter = '.';
         }
 
         return (
-          <div className={`${styles.letter} ${lettertype}`} key={`text-${i}`} >{ letter }<div className={styles.shade} />
+          <div className={`${styles.letter} ${lettertype}`} key={`text-${i}`} >
+            { printLetter }<div className={styles.shade} />
           </div>
         );
       });

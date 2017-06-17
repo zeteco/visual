@@ -111,20 +111,18 @@ Co
     });
 
     return (
-      <div className={styles.app}>
+      <div className={`${styles.app} ${this.state.style}`}>
         <div className={styles.visual}>
           <Textlayer
             width={this.state.columns}
             height={this.state.rows}
             words={this.state.words}
             seed={this.state.seed}
-            style={this.state.style}
             />
           <CellAutomata
             data={data}
             fill={this.state.fill}
             empty={this.state.empty}
-            style={this.state.style}
             />
           <UiToggle
             isUiVisible={this.state.isUiVisible}
@@ -132,7 +130,6 @@ Co
             />
           <Ui
             visible={this.state.isUiVisible}
-
             columns={this.state.columns}
             autosize={this.state.autosize}
             autorule={this.state.autorule}

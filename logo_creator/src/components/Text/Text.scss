@@ -86,3 +86,53 @@
     color: $color-box;
   }
 }
+
+:global(.msg-internet) .letter,
+:global(.msg-internet) .fakemarkdown {
+  color: $msg-bg;
+  background-color: $msg-internet-primary;
+
+  &__emphasis {
+    color: white;
+  }
+
+  a {
+    color: $msg-cyber-primary;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+
+:global(.msg-cyber) .letter,
+:global(.msg-cyber) .fakemarkdown {
+  color: $msg-bg;
+  background-color: $msg-cyber-primary;
+
+  &__emphasis {
+    color: $msg-internet-primary;
+  }
+
+  a {
+    color: $msg-classic-primary;
+    &:hover {
+      color: #3C3B3F;
+    }
+  }
+}
+
+
+:global(.msg-classic) .letter,
+:global(.msg-classic) .fakemarkdown {
+  color: $msg-bg;
+  background-color: $msg-classic-primary;
+
+  &__emphasis {
+    color: $msg-cyber-primary;
+  }
+
+  a {
+    color: white;
+  }
+}
