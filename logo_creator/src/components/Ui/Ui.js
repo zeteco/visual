@@ -141,7 +141,7 @@ class Ui extends Component {
             <div className={styles.value__caption}>Columns <span className={styles.value__valuerange}>0–~</span> </div>
             <input
               className={styles.value__input}
-              type="text"
+              type="number"
               value={this.props.columns}
               onChange={this.changeColumns}
             />
@@ -150,7 +150,7 @@ class Ui extends Component {
             <div className={styles.value__caption}>Rows <span className={styles.value__valuerange}>0–~</span> </div>
             <input
               className={styles.value__input}
-              type="text"
+              type="number"
               value={this.props.rows}
               onChange={this.changeRows}
             />
@@ -160,7 +160,7 @@ class Ui extends Component {
             <div className={styles.value__caption}>Rule <span className={styles.value__valuerange}>0–255</span> </div>
             <input
               className={styles.value__input}
-              type="text"
+              type="number"
               value={this.props.rule}
               onChange={this.changeRule}
             />
