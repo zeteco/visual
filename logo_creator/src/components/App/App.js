@@ -80,7 +80,6 @@ Co
       window.dispatchEvent(new Event('optimizedResize'));
     }
     setInterval(() => {
-      console.log('update')
       if(this.state.autorule) {
         this.setState({
           rule: Math.floor(Math.random() * 255),
@@ -90,7 +89,7 @@ Co
 
   }
 
-  changeRule = (rule) => this.setState({ rule });
+  changeRule = (rule) => this.setState({ autorule: false, rule });
   changeSeed = (seed) => this.setState({ seed });
   changeWords = (words) => this.setState({ words });
   changeStyle = (style) => this.setState({ style });
