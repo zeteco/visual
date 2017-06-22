@@ -26,3 +26,14 @@
 :global(.print) .cell__item--passive {
   color: black;
 }
+
+
+:global(.msg-internet) .cell__item--active {
+  color: $msg-internet-primary;
+}
+:global(.msg-cyber) .cell__item--active {
+  color: $msg-cyber-primary;
+}
+:global(.msg-classic) .cell__item--active {
+  color: $msg-classic-primary;
+}
