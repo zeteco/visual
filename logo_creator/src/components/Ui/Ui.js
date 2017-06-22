@@ -116,6 +116,8 @@ class Ui extends Component {
                <option value="msg-classic">msg-classic</option>
                <option value="msg-cyber">msg-cyber</option>
                <option value="msg-internet">msg-datenautobahn</option>
+               <option value="erich-protectionist">erich-protectionist</option>
+
              </select>
           </div>
 

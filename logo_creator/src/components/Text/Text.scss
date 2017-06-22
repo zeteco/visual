@@ -136,3 +136,18 @@
     color: white;
   }
 }
+
+
+:global(.erich-protectionist) .letter,
+:global(.erich-protectionist) .fakemarkdown {
+  color: $msg-bg;
+  background-color: $erich-protectionist-primary;
+
+  &__emphasis {
+    color: $msg-cyber-primary;
+  }
+
+  a {
+    color: white;
+  }
+}
