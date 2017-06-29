@@ -40,3 +40,6 @@
 :global(.erich-protectionist) .cell__item--active {
   color: $erich-protectionist-primary;
 }
+:global(.print-bw) .cell__item--active {
+  color: white;
+}

@@ -151,3 +151,17 @@
     color: white;
   }
 }
+
+:global(.print-bw) .letter,
+:global(.print-bw) .fakemarkdown {
+  color: black;
+  background-color: white;
+
+  &__emphasis {
+    color: black;
+  }
+
+  a {
+    color: black;
+  }
+}
