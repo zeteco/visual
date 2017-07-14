@@ -10,19 +10,19 @@ var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 loaders.push({
 	test: /[\/\\]src[\/\\].*\.css/,
 	exclude: /(node_modules|bower_components|public\/)/,
-	loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+	loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
 });
 
 // local scss modules
 loaders.push({
-	test: /[\/\\]src[\/\\].*\.scss/,
-	exclude: /(node_modules|bower_components|public\/)/,
-	loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
+  test: /\.scss$/,
+  loader: ExtractTextPlugin.extract({fallback: 'style-loader', use : 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded'}),
+  exclude: ['node_modules']
 });
 // global css files
 loaders.push({
 	test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
-	loader: ExtractTextPlugin.extract('style', 'css')
+	loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
 });
 
 module.exports = {
@@ -39,7 +39,7 @@ module.exports = {
 	    'react': 'react-lite',
 	    'react-dom': 'react-lite'
 	  },
-		extensions: ['', '.js', '.jsx']
+		extensions: ['.js', '.jsx']
 	},
 	module: {
 		loaders

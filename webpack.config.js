@@ -13,8 +13,8 @@ loaders.push({
 	test: /\.css$/,
 	exclude: /[\/\\]src[\/\\]/,
 	loaders: [
-		'style?sourceMap',
-		'css'
+		'style-loader?sourceMap',
+		'css-loader'
 	]
 });
 // local scss modules
@@ -22,10 +22,10 @@ loaders.push({
 	test: /\.scss$/,
 	exclude: /[\/\\](node_modules|bower_components|public\/)[\/\\]/,
 	loaders: [
-		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap',
-		'postcss',
-		'sass'
+		'style-loader?sourceMap',
+		'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap',
+		'postcss-loader',
+		'sass-loader'
 	]
 });
 
@@ -34,8 +34,8 @@ loaders.push({
 	test: /\.css$/,
 	exclude: /[\/\\](node_modules|bower_components|public\/)[\/\\]/,
 	loaders: [
-		'style?sourceMap',
-		'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap'
+		'style-loader?sourceMap',
+		'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap'
 	]
 });
 
@@ -51,7 +51,7 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx']
+		extensions: ['.js', '.jsx']
 	},
 	module: {
 		loaders
