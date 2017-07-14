@@ -1,11 +1,8 @@
 import seedrandom from 'seedrandom';
 
 class CellAutomata {
-
   // make random number 0 or 1
-  rndBool = () => {
-    return this.random() < .5;
-  }
+  rndBool = () => this.random() < 0.5
 
   // make array of random numbers
   rndRow(count) {
@@ -14,9 +11,9 @@ class CellAutomata {
 
   // make array of numbers for the requested rule
   makeRule(number) {
-    var binary = (number >>> 0).toString(2);
+    let binary = (number >>> 0).toString(2);
     while (binary.length < 8) {
-      binary = '0' + binary;
+      binary = `0${binary}`;
     }
     binary = binary.split('').reverse();
     return binary;
@@ -25,21 +22,21 @@ class CellAutomata {
 
   // calculate a new Row based on the last row and the rule
   calcNewRow(oldRow, rule) {
-    var newRow = [];
+    const newRow = [];
 
     oldRow.map((bool, index, arr) => {
-      var left  = + arr[index - 1];
-      var self  = + bool;
-      var right = + arr[index + 1];
+      let left = +arr[index - 1];
+      const self = +bool;
+      let right = +arr[index + 1];
       if (index === 0) {
-        left = + arr[arr.length - 1];
+        left = +arr[arr.length - 1];
       }
       if (index === arr.length - 1) {
-        right = + arr[0];
+        right = +arr[0];
       }
 
-      var res = parseInt(('' + left + self + right), 2);
-      newRow.push( + rule[res]);
+      const res = parseInt((`${left}${self}${right}`), 2);
+      newRow.push(+rule[res]);
     });
     return newRow;
   }
@@ -56,11 +53,11 @@ class CellAutomata {
     // initalize the seed
     this.random = seedrandom(this.seed);
 
-    var result = [];
-    var lastRow = this.rndRow(this.columns);
-    var rule = this.makeRule(this.rule);
+    const result = [];
+    let lastRow = this.rndRow(this.columns);
+    const rule = this.makeRule(this.rule);
     Array.from(Array(this.rows)).map(() => {
-      var nextRow = this.calcNewRow(lastRow, rule);
+      const nextRow = this.calcNewRow(lastRow, rule);
       result.push(nextRow);
       lastRow = nextRow;
     });

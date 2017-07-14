@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { PureComponent } from 'react';
 import styles from './Cell.scss';
 
-class Cell extends Component {
+class Cell extends PureComponent {
   render() {
-    var cell;
+    let cell;
     if (this.props.active) {
       cell = <div className={`${styles.cell__item} ${styles['cell__item--active']}`}>{this.props.text}</div>;
     } else {

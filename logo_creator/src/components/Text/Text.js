@@ -1,19 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styles from './Text.scss';
 
 class Text extends Component {
-
   constructor() {
     super();
   }
 
   render() {
-
-    var letters = null;
+    let letters = null;
 
     // start with ! then its markdown
-    if(this.props.text.charAt(0) === '!') {
-      //make a wobbly markdown parser...
+    if (this.props.text.charAt(0) === '!') {
+      // make a wobbly markdown parser...
 
 
       let width = 21;
@@ -22,9 +20,9 @@ class Text extends Component {
       let text = this.props.text;
 
       // if the text starts with !{w,h} the box is defined by the user
-      var regexp = /^!{([0-9.]+),([0-9.]+)}(.*)$/gi;
+      const regexp = /^!{([0-9.]+),([0-9.]+)}(.*)$/gi;
 
-      var match = regexp.exec(text);
+      const match = regexp.exec(text);
       if (match) {
         width = match[1];
         height = match[2];
@@ -37,7 +35,7 @@ class Text extends Component {
       `;
 
       let texttype = 'normal';
-      if ( /^!\s+$/.test(text)) {
+      if (/^!\s+$/.test(text)) {
         texttype = 'empty';
       }
 
@@ -46,16 +44,15 @@ class Text extends Component {
       // ^^txt^^ = supertext
       // [LinkText](https://...) = link
       const fakeMarkdown = text
-        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-        .replace(/&lt;br&gt;/g,'<br>')
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/&lt;br&gt;/g, '<br>')
         .replace(/^!(.*)$/gi, `<div class="${styles.fakemarkdown} ${texttype}" style="${style}">$1<div class="${styles.shade}" style="${style}"></div></div>`)
         .replace(/\*\*([^*]*)\*\*/gi, `<span class="${styles.fakemarkdown__emphasis}">$1</span>`)
-        .replace(/\^\^([^\^]*)\^\^/gi, `<sup>$1</sup>`)
+        .replace(/\^\^([^\^]*)\^\^/gi, '<sup>$1</sup>')
         .replace(/\[([^[]*)\]\(([^)]*)\)/gi, '<a href="$2" target="_blank">$1</a>');
-      letters = <div style={this.props.style}><div dangerouslySetInnerHTML={{ __html: fakeMarkdown }}></div></div>;
+      letters = <div style={this.props.style}><div dangerouslySetInnerHTML={{ __html: fakeMarkdown }} /></div>;
     } else {
       letters = this.props.text.split('').map((letter, i) => {
-
         let lettertype = 'normal';
         let printLetter = letter;
         if (letter === ' ') {

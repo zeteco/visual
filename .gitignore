@@ -28,3 +28,5 @@ node_modules
 
 # Ignore build files
 public
+/logo_creator/.DS_Store
+/logo_creator/phantomjs

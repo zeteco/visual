@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styles from './Ui.scss';
 
-class Ui extends Component {
-
+class Ui extends PureComponent {
   range8Bit(value) {
     let newVal = parseInt(value, 10) || 0;
     newVal = Math.max(0, newVal);
@@ -11,7 +10,7 @@ class Ui extends Component {
   }
   changeRule = (event) => {
     this.props.changeRule(
-      this.range8Bit(event.target.value)
+      this.range8Bit(event.target.value),
     );
   }
   changeSeed = (event) => {
@@ -21,7 +20,7 @@ class Ui extends Component {
   }
   changeWords = (event) => {
     this.props.changeWords(
-      event.target.value,
+      event.target.value || ' ',
     );
   }
   changeFill = (event) => {
@@ -36,37 +35,34 @@ class Ui extends Component {
   }
   changeColumns = (event) => {
     this.props.changeColumns(
-      parseInt(event.target.value,10)
+      parseInt(event.target.value, 10),
     );
   }
   changeRows = (event) => {
     this.props.changeRows(
-      parseInt(event.target.value,10)
+      parseInt(event.target.value, 10),
     );
   }
   changeAutosize = (event) => {
     this.props.changeAutosize(
-      event.target.checked
+      event.target.checked,
     );
   }
   changeStyle = (event) => {
-    console.log('style',
-      event.target.value,
-      event.target.name)
     this.props.changeStyle(
       event.target.value || 'normal',
-      event.target.name
+      event.target.name,
     );
   }
   changeAutorule = (event) => {
     this.props.changeAutorule(
-      event.target.checked
+      event.target.checked,
     );
   }
 
   rndSeed = () => {
     this.props.changeSeed(
-      Math.random().toString(36).substr(2, 6)
+      Math.random().toString(36).substr(2, 6),
     );
   }
 
@@ -82,7 +78,7 @@ class Ui extends Component {
 
   render() {
     let isVisible = '';
-    if(!this.props.visible) isVisible = styles.hidden;
+    if (!this.props.visible) isVisible = styles.hidden;
 
     return (
       <div className={`${styles.ui} ${isVisible}`}>
@@ -95,7 +91,7 @@ class Ui extends Component {
             <div className={styles.value__caption}>Random Rules </div>
             <span className={styles.value__button} onClick={this.rndRule}>generate</span>
           </div>
-          <br/>
+          <br />
           <div className={styles.value}>
             <div className={styles.value__caption}>Words <span className={styles.value__valuerange}>separated by line</span> </div>
             <textarea
@@ -110,16 +106,15 @@ class Ui extends Component {
 
           <div className={styles.value}>
             <div className={styles.value__caption}>Style</div>
-            <select onChange={this.changeStyle}>
-               <option value="normal">Normal</option>
-               <option value="print">Printer friendly (A4 → cols: 46, rows: 54)</option>
-               <option value="print-bw">black&amp;white</option>
-               <option value="msg-classic">msg-classic</option>
-               <option value="msg-cyber">msg-cyber</option>
-               <option value="msg-internet">msg-datenautobahn</option>
-               <option value="erich-protectionist">erich-protectionist</option>
-
-             </select>
+            <select value={this.props.style} onChange={this.changeStyle}>
+              <option value="normal">Normal</option>
+              <option value="print">Printer friendly (A4 → cols: 46, rows: 54)</option>
+              <option value="print-bw">black&amp;white</option>
+              <option value="msg-classic">msg-classic</option>
+              <option value="msg-cyber">msg-cyber</option>
+              <option value="msg-internet">msg-datenautobahn</option>
+              <option value="erich-protectionist">erich-protectionist</option>
+            </select>
           </div>
 
           <div className={styles.value}>
