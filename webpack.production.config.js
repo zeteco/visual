@@ -59,7 +59,7 @@ module.exports = {
 				drop_debugger: true
 			}
 		}),
-		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.optimize.OccurrenceOrderPlugin(),
 		new ExtractTextPlugin('[contenthash].css', {
 			allChunks: true
 		}),
