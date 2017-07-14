@@ -20,6 +20,14 @@ if (system.args.length < 3 || system.args.length > 5) {
                                            : { format: system.args[3], orientation: 'portrait', margin: '1cm' };
     } else if (system.args.length > 3 && system.args[3].substr(-2) === "px") {
         size = system.args[3].split('*');
+        if (size.length === 4) {
+          var pageWidth = parseInt(size[0], 10),
+              pageHeight = parseInt(size[1], 10),
+              viewportWidth = parseInt(size[2], 10),
+              viewportHeight = parseInt(size[3], 10);
+          page.viewportSize = { width: pageWidth, height: pageHeight };
+          page.clipRect = { top: 0, left: 0, width: viewportWidth, height: viewportHeight };
+        }
         if (size.length === 2) {
             var pageWidth = parseInt(size[0], 10),
                 pageHeight = parseInt(size[1], 10);
