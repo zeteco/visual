@@ -1,0 +1,54 @@
+// This is the top-level scss file
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 20px;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+:global(.container),
+:global(.container) > div {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+body, #react-root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: orange;
+  &:hover {
+    color: white;
+  }
+}
+
+@media print {
+  .ui {
+    display: none;
+  }
+  html, body {
+    -webkit-print-color-adjust: exact;
+    overflow: hidden;
+    font-size: 19px;
+  }
+}

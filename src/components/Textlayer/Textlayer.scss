@@ -1,0 +1,11 @@
+@import "../../variables";
+
+.textlayer {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: (2 * $unit-h) (2 * $unit-w);
+}
