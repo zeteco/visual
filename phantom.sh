@@ -1,0 +1,1 @@
+./phantomjs rasterize.js "https://zeteco.ch/?autorule=0&autosize=0&columns=56&rows=25&rule=85&words=Ze%0ATe%2C%21%7B28%2C2%7D%20%2C%21%7B5%2C2%7D%5B%E2%86%92%202017%5D%28https%3A%2F%2Fwiki.zeteco.ch%2F%29%0ACo%2C%21%7B15%2C2%7D%20%2COpening%0A%0A%0A" 00001_frame.png
