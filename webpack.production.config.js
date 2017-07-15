@@ -16,7 +16,7 @@ loaders.push({
 // local scss modules
 loaders.push({
   test: /\.scss$/,
-  loader: ExtractTextPlugin.extract({fallback: 'style-loader', use : 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded'}),
+  loader: ExtractTextPlugin.extract({fallback: 'style-loader', use : 'css-loader?modules&sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded'}),
   exclude: ['node_modules']
 });
 // global css files
