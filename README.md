@@ -1,5 +1,5 @@
 # Visual identity for ZeTeCo camp'17
-Explores different possibilities for a visual identity created through code for ZeTeCo camp'17
+Explores different possibilities for a visual identity created through code for ZeTeCo camp 2017
 
 ### To run
 
