@@ -6,7 +6,7 @@ import App from './components/App/App';
 import history from './history';
 
 
-import styles from './index.scss';
+import './index.scss';
 import '../assets/images/favicon.ico';
 
 // link the history used in our app to url-query so it can update the URL with it.

@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Text.scss';
 
-class Text extends Component {
-  constructor() {
-    super();
-  }
+class Text extends PureComponent {
+  static propTypes = {
+    text: PropTypes.string.isRequired,
+  };
 
   render() {
     let letters = null;
@@ -48,9 +49,9 @@ class Text extends Component {
         .replace(/&lt;br&gt;/g, '<br>')
         .replace(/^!(.*)$/gi, `<div class="${styles.fakemarkdown} ${texttype}" style="${style}">$1<div class="${styles.shade}" style="${style}"></div></div>`)
         .replace(/\*\*([^*]*)\*\*/gi, `<span class="${styles.fakemarkdown__emphasis}">$1</span>`)
-        .replace(/\^\^([^\^]*)\^\^/gi, '<sup>$1</sup>')
+        .replace(/\^\^([^^]*)\^\^/gi, '<sup>$1</sup>')
         .replace(/\[([^[]*)\]\(([^)]*)\)/gi, '<a href="$2" target="_blank">$1</a>');
-      letters = <div style={this.props.style}><div dangerouslySetInnerHTML={{ __html: fakeMarkdown }} /></div>;
+      letters = <div dangerouslySetInnerHTML={{ __html: fakeMarkdown }} />; // eslint-disable-line
     } else {
       letters = this.props.text.split('').map((letter, i) => {
         let lettertype = 'normal';
@@ -69,16 +70,11 @@ class Text extends Component {
     }
 
     return (
-      <div className={styles.text} style={this.props.style}>
+      <div className={styles.text}>
         <div className={styles.wrapper}>{ letters }</div>
       </div>
     );
   }
 }
-
-Text.propTypes = {
-  text: React.PropTypes.string,
-  style: React.PropTypes.object,
-};
 
 export default Text;

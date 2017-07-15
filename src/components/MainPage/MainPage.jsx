@@ -1,14 +1,12 @@
 import React, { PureComponent } from 'react';
+import { addUrlProps, UrlQueryParamTypes } from 'react-url-query';
 import PropTypes from 'prop-types';
 import styles from './MainPage.scss';
 import CellAutomata from '../CellAutomata/CellAutomata';
 import Textlayer from '../Textlayer/Textlayer';
-import Text from '../Text/Text';
-import Space from '../Space/Space';
 import AutomataLib from '../../helper/CellAutomata';
 import Ui from '../Ui/Ui';
 import UiToggle from '../UiToggle/UiToggle';
-import { addUrlProps, UrlQueryParamTypes } from 'react-url-query';
 
 const urlPropsQueryConfig = {
   rule: { type: UrlQueryParamTypes.number },
@@ -42,17 +40,17 @@ class MainPage extends PureComponent {
     // change handlers are automatically generated when given a config.
     // By default they update that single query parameter and maintain existing
     // values in the other parameters.
-    onChangeRule: PropTypes.func,
-    onChangeSeed: PropTypes.func,
-    onChangeWords: PropTypes.func,
-    onChangeStyle: PropTypes.func,
-    onChangeAutosize: PropTypes.func,
-    onChangeAutorule: PropTypes.func,
-    onChangeColumns: PropTypes.func,
-    onChangeRows: PropTypes.func,
-    onChangeFill: PropTypes.func,
-    onChangeEmpty: PropTypes.func,
-    onChangeIsUiVisible: PropTypes.func,
+    onChangeRule: PropTypes.func.isRequired,
+    onChangeSeed: PropTypes.func.isRequired,
+    onChangeWords: PropTypes.func.isRequired,
+    onChangeStyle: PropTypes.func.isRequired,
+    onChangeAutosize: PropTypes.func.isRequired,
+    onChangeAutorule: PropTypes.func.isRequired,
+    onChangeColumns: PropTypes.func.isRequired,
+    onChangeRows: PropTypes.func.isRequired,
+    onChangeFill: PropTypes.func.isRequired,
+    onChangeEmpty: PropTypes.func.isRequired,
+    onChangeIsUiVisible: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -80,11 +78,11 @@ Co
 
 
     // setup the trottled event optimizedResize
-    (function () {
-      const throttle = function (type, name, obj) {
-        obj = obj || window;
+    (function trottle() {
+      const throttle = (type, name, objInput) => {
+        const obj = objInput || window;
         let running = false;
-        const func = function () {
+        const func = () => {
           if (running) { return; }
           running = true;
           requestAnimationFrame(() => {
@@ -102,7 +100,6 @@ Co
 
     // handle event
     window.addEventListener('optimizedResize', () => {
-
       if (this.props.autosize) {
         // window.innerWidth;
         const remSize = parseFloat(

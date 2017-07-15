@@ -9,13 +9,13 @@
   position: absolute;
   overflow: scroll;
 }
-:global(.print).app {
+:global(.print).MainPage {
   background-color: white;
 }
 
-:global(.msg-classic).app,
-:global(.msg-cyber).app,
-:global(.msg-internet).app {
+:global(.msg-classic).MainPage,
+:global(.msg-cyber).MainPage,
+:global(.msg-internet).MainPage {
   background-color: $msg-bg;
 }
 

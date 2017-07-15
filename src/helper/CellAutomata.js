@@ -24,7 +24,7 @@ class CellAutomata {
   calcNewRow(oldRow, rule) {
     const newRow = [];
 
-    oldRow.map((bool, index, arr) => {
+    oldRow.forEach((bool, index, arr) => {
       let left = +arr[index - 1];
       const self = +bool;
       let right = +arr[index + 1];
@@ -56,7 +56,7 @@ class CellAutomata {
     const result = [];
     let lastRow = this.rndRow(this.columns);
     const rule = this.makeRule(this.rule);
-    Array.from(Array(this.rows)).map(() => {
+    Array.from(Array(this.rows)).forEach(() => {
       const nextRow = this.calcNewRow(lastRow, rule);
       result.push(nextRow);
       lastRow = nextRow;

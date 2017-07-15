@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Cell.scss';
 
 class Cell extends PureComponent {
@@ -15,8 +16,8 @@ class Cell extends PureComponent {
 }
 
 Cell.propTypes = {
-  active: React.PropTypes.bool.isRequired,
-  text: React.PropTypes.string,
+  active: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default Cell;

@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
-import Textline from '../Textline/Textline';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import seedrandom from 'seedrandom';
+import Textline from '../Textline/Textline';
 import styles from './Textlayer.scss';
 
-class Textlayer extends Component {
-  constructor() {
-    super();
-  }
-
+class Textlayer extends PureComponent {
   render() {
     const widthStyle = {
       width: `${0.8 * this.props.width}rem`,
-      left: `calc(50% - ${0.8 * this.props.width / 2}rem)`,
+      left: `calc(50% - ${(0.8 * this.props.width) / 2}rem)`,
     };
 
     // initalize the seed
@@ -23,7 +20,7 @@ class Textlayer extends Component {
       // .replace( /!{([0-9.]+),([0-9.]+)}/g, '!{$1\\,$2}')
       // .replace(/\\?\,/g, function (t) { return t === ',' ? '\u000B' : ','; }).split('\u000B')
       .split('\n')
-      .map((word, i) => <Textline text={word} key={word + i} style={{ paddingLeft: `${(Math.floor(random() * 7) * 0.8)}rem` }} />);
+      .map((word, i) => <Textline text={word} key={word + i} paddingLeft={`${(Math.floor(random() * 7) * 0.8)}rem`} />);
 
     return (
       <div className={styles.textlayer} style={widthStyle}>
@@ -34,10 +31,9 @@ class Textlayer extends Component {
 }
 
 Textlayer.propTypes = {
-  width: React.PropTypes.number,
-  height: React.PropTypes.number,
-  words: React.PropTypes.string,
-  seed: React.PropTypes.string,
+  width: PropTypes.number.isRequired,
+  words: PropTypes.string.isRequired,
+  seed: PropTypes.string.isRequired,
 };
 
 export default Textlayer;

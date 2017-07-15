@@ -1,7 +1,36 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Ui.scss';
 
 class Ui extends PureComponent {
+  static propTypes = {
+    visible: PropTypes.bool.isRequired,
+    columns: PropTypes.number.isRequired,
+    autosize: PropTypes.bool.isRequired,
+    autorule: PropTypes.bool.isRequired,
+    rows: PropTypes.number.isRequired,
+    rule: PropTypes.number.isRequired,
+    words: PropTypes.string.isRequired,
+    seed: PropTypes.string.isRequired,
+    fill: PropTypes.string.isRequired,
+    empty: PropTypes.string.isRequired,
+    style: PropTypes.string.isRequired,
+
+    changeRule: PropTypes.func.isRequired,
+    changeSeed: PropTypes.func.isRequired,
+    changeWords: PropTypes.func.isRequired,
+    changeStyle: PropTypes.func.isRequired,
+    changeFill: PropTypes.func.isRequired,
+    changeEmpty: PropTypes.func.isRequired,
+    changeColumns: PropTypes.func.isRequired,
+    changeRows: PropTypes.func.isRequired,
+    changeAutosize: PropTypes.func.isRequired,
+    changeAutorule: PropTypes.func.isRequired,
+  }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * ((max - min) + 1)) + min;
+  }
   range8Bit(value) {
     let newVal = parseInt(value, 10) || 0;
     newVal = Math.max(0, newVal);
@@ -66,9 +95,6 @@ class Ui extends PureComponent {
     );
   }
 
-  getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
 
   rndRule = () => {
     this.props.changeRule(
@@ -93,7 +119,9 @@ class Ui extends PureComponent {
           </div>
           <br />
           <div className={styles.value}>
-            <div className={styles.value__caption}>Words <span className={styles.value__valuerange}>separated by line</span> </div>
+            <div className={styles.value__caption}>
+              Words <span className={styles.value__valuerange}>separated by line</span>
+            </div>
             <textarea
               name="word"
               cols="40"
@@ -118,7 +146,9 @@ class Ui extends PureComponent {
           </div>
 
           <div className={styles.value}>
-            <div className={styles.value__caption}>Update Rules all 3 sec. <span className={styles.value__valuerange}>true/false</span> </div>
+            <div className={styles.value__caption}>
+              Update Rules all 3 sec. <span className={styles.value__valuerange}>true/false</span>
+            </div>
             <input
               className={styles.value__input}
               type="checkbox"
@@ -127,7 +157,9 @@ class Ui extends PureComponent {
             />
           </div>
           <div className={styles.value}>
-            <div className={styles.value__caption}>Autosize <span className={styles.value__valuerange}>true/false</span> </div>
+            <div className={styles.value__caption}>
+              Autosize <span className={styles.value__valuerange}>true/false</span>
+            </div>
             <input
               className={styles.value__input}
               type="checkbox"
@@ -136,7 +168,9 @@ class Ui extends PureComponent {
             />
           </div>
           <div className={styles.value}>
-            <div className={styles.value__caption}>Columns <span className={styles.value__valuerange}>0–~</span> </div>
+            <div className={styles.value__caption}>
+              Columns <span className={styles.value__valuerange}>0–~</span>
+            </div>
             <input
               className={styles.value__input}
               type="number"
@@ -145,7 +179,9 @@ class Ui extends PureComponent {
             />
           </div>
           <div className={styles.value}>
-            <div className={styles.value__caption}>Rows <span className={styles.value__valuerange}>0–~</span> </div>
+            <div className={styles.value__caption}>
+              Rows <span className={styles.value__valuerange}>0–~</span>
+            </div>
             <input
               className={styles.value__input}
               type="number"
@@ -155,7 +191,9 @@ class Ui extends PureComponent {
           </div>
 
           <div className={styles.value}>
-            <div className={styles.value__caption}>Rule <span className={styles.value__valuerange}>0–255</span> </div>
+            <div className={styles.value__caption}>
+              Rule <span className={styles.value__valuerange}>0–255</span>
+            </div>
             <input
               className={styles.value__input}
               type="number"
@@ -165,7 +203,9 @@ class Ui extends PureComponent {
           </div>
 
           <div className={styles.value}>
-            <div className={styles.value__caption}>Seed <span className={styles.value__valuerange}>any</span> </div>
+            <div className={styles.value__caption}>
+              Seed <span className={styles.value__valuerange}>any</span>
+            </div>
             <input
               className={styles.value__input}
               type="text"
@@ -175,7 +215,9 @@ class Ui extends PureComponent {
           </div>
 
           <div className={styles.value}>
-            <div className={styles.value__caption}>Fill <span className={styles.value__valuerange}>one char</span> </div>
+            <div className={styles.value__caption}>
+              Fill <span className={styles.value__valuerange}>one char</span>
+            </div>
             <input
               className={styles.value__input}
               type="text"
@@ -184,7 +226,9 @@ class Ui extends PureComponent {
             />
           </div>
           <div className={styles.value}>
-            <div className={styles.value__caption}>Empty <span className={styles.value__valuerange}>one char</span> </div>
+            <div className={styles.value__caption}>
+              Empty <span className={styles.value__valuerange}>one char</span>
+            </div>
             <input
               className={styles.value__input}
               type="text"

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './CellAutomata.scss';
 import Row from '../Row/Row';
 import AutomataLib from '../../helper/CellAutomata';
@@ -27,9 +28,9 @@ class CellAutomata extends Component {
 }
 
 CellAutomata.propTypes = {
-  data: React.PropTypes.array.isRequired,
-  fill: React.PropTypes.string,
-  empty: React.PropTypes.string,
+  data: PropTypes.array.isRequired,
+  fill: PropTypes.string.isRequired,
+  empty: PropTypes.string.isRequired,
 };
 
 export default CellAutomata;

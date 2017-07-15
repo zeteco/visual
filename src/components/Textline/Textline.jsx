@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Text from '../Text/Text';
 import styles from './Textline.scss';
 
@@ -12,7 +13,7 @@ class Textline extends Component {
       .map((word, i) => <Text text={word} key={word + i} />);
 
     return (
-      <div className={styles.textline} style={this.props.style}>
+      <div className={styles.textline} style={{ paddingLeft: this.props.paddingLeft }} >
         {words}
       </div>
     );
@@ -20,8 +21,8 @@ class Textline extends Component {
 }
 
 Textline.propTypes = {
-  text: React.PropTypes.string,
-  style: React.PropTypes.object,
+  text: PropTypes.string.isRequired,
+  paddingLeft: PropTypes.string.isRequired,
 };
 
 export default Textline;

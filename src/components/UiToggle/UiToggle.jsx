@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './UiToggle.scss';
 
 const UiToggle = (props) => {
@@ -18,8 +19,8 @@ const UiToggle = (props) => {
 };
 
 UiToggle.propTypes = {
-  isUiVisible: React.PropTypes.bool,
-  toggleClickHandler: React.PropTypes.func,
+  isUiVisible: PropTypes.bool.isRequired,
+  toggleClickHandler: PropTypes.func.isRequired,
 };
 
 export default UiToggle;
