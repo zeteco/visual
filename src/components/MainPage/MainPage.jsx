@@ -125,7 +125,7 @@ Co
     }, 3000);
   }
   changeRule = (rule) => {
-    this.props.onChangeAutosize(false);
+    this.props.onChangeAutorule(false);
     this.props.onChangeRule(rule);
   };
   changeColumns = (columns) => {
