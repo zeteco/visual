@@ -20,7 +20,7 @@ class Textlayer extends PureComponent {
       // .replace( /!{([0-9.]+),([0-9.]+)}/g, '!{$1\\,$2}')
       // .replace(/\\?\,/g, function (t) { return t === ',' ? '\u000B' : ','; }).split('\u000B')
       .split('\n')
-      .map((word, i) => <Textline text={word} key={word + i} paddingLeft={`${(Math.floor(random() * 7) * 0.8)}rem`} />);
+      .map((line, i) => <Textline text={line} key={line + i} paddingLeft={`${(Math.floor(random() * 7) * 0.8)}rem`} />);
 
     return (
       <div className={styles.textlayer} style={widthStyle}>
