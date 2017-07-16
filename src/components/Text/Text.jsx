@@ -45,11 +45,13 @@ class Text extends PureComponent {
       // ^^txt^^ = supertext
       // [LinkText](https://...) = link
       const fakeMarkdown = text
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-        .replace(/&lt;br&gt;/g, '<br>')
-        .replace(/^!(.*)$/gi, `<div class="${styles.fakemarkdown} ${texttype}" style="${style}">$1<div class="${styles.shade}" style="${style}"></div></div>`)
-        .replace(/\*\*([^*]*)\*\*/gi, `<span class="${styles.fakemarkdown__emphasis}">$1</span>`)
-        .replace(/\^\^([^^]*)\^\^/gi, '<sup>$1</sup>')
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') // html escape
+        .replace(/&lt;br&gt;/g, '<br>') // restore <br>-tag
+        .replace(/^!(.*)$/gi, '$1') // remove leading exclamation mark
+        .replace(/^\s*/mg, x => new Array(x.length + 1).join('&nbsp;')) // replace leading spaces with &nbsp;
+        .replace(/^(.*)$/gi, `<div class="${styles.fakemarkdown} ${texttype}" style="${style}">$1<div class="${styles.shade}" style="${style}"></div></div>`)
+        .replace(/\*\*([^*]*)\*\*/gi, `<span class="${styles.fakemarkdown__emphasis}">$1</span>`) // **text** => emphasis
+        .replace(/\^\^([^^]*)\^\^/gi, '<sup>$1</sup>') // ^^text^^ => superscript
         .replace(/\[([^[]*)\]\(([^)]*)\)/gi, '<a href="$2" target="_blank">$1</a>');
       letters = <div dangerouslySetInnerHTML={{ __html: fakeMarkdown }} />; // eslint-disable-line
     } else {
