@@ -58,9 +58,8 @@ class MainPage extends PureComponent {
     seed: 'asnely',
     words: `!Zeltlager der Technik- und Computerfreunde <br>**21^^st^^ – 24^^th^^ July 2017**
 Ze,!{2,2} ,!{16,2}[→ Wiki with infos](https://wiki.zeteco.ch/)
-Te,!{2,2} ,!{8,2}[→ Tickets](https://tickets.zeteco.ch)
-Co
-!{20,2}[→ Call for Participation](https://frab.zeteco.ch)`,
+Te
+Co`,
     style: 'normal',
     autosize: true,
     autorule: true,
